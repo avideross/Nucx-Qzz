@@ -449,51 +449,56 @@
 
 </div> ```
 <script>
-    // Supabase Connection
-    const _supabase = supabase.createClient('https://xbjdwrehyqcnymtilqjk.supabase.co', 'sb_publishable_dm27O-VDWEqq1HC4WmtwRw__3w_nXK9');
+   const _supabase = supabase.createClient('https://xbjdwrehyqcnymtilqjk.supabase.co', 'sb_publishable_dm27O-VDWEqq1HC4WmtwRw__3w_nXK9');
 
 async function updateStats() {
-    // 1. FOUNDERS DATA (Isse progress bar chalega)
-    const { data: foundersData } = await _supabase.from('founders').select('amount');
+    const { data: foundersData, error } = await _supabase.from('founders').select('amount');
+    if (error) { console.error("Error fetching stats:", error); return; }
+
     if (foundersData) {
         let donors = foundersData.length;
         let money = foundersData.reduce((sum, row) => sum + Number(row.amount), 0);
+        
+        // Numbers update
         document.getElementById('founder-count').innerText = donors;
         document.getElementById('fund-total').innerText = money.toLocaleString('en-IN');
-        document.getElementById('founder-meter').style.width = (donors / 250 * 100) + "%";
-        document.getElementById('fund-meter').style.width = Math.min((money / 500000 * 100), 100) + "%";
-    }
-
-    // 2. VISITOR COUNT (Isse aapka visitor counter chalega)
-    const { data: stats } = await _supabase.from('site_stats').select('visitor_count').eq('id', 'main_site').single();
-    if (stats) {
-        const newCount = stats.visitor_count + 1;
-        await _supabase.from('site_stats').update({ visitor_count: newCount }).eq('id', 'main_site');
-        document.getElementById('visitor-count').innerText = newCount;
+        
+        // Progress Bars update
+        if(document.getElementById('founder-meter')) 
+            document.getElementById('founder-meter').style.width = (donors / 250 * 100) + "%";
+        if(document.getElementById('fund-meter')) 
+            document.getElementById('fund-meter').style.width = Math.min((money / 500000 * 100), 100) + "%";
     }
 }
 
-            if (navigator.share) {
-                navigator.share({
-                    title: shareTitle,
-                    text: shareText,
-                    url: shareUrl
-                }).catch((err) => console.log("Error sharing:", err));
-            } else {
-                // PC Users ke liye default WhatsApp
-                window.open(`https://wa.me/?text=${encodeURIComponent(fullMessage)}`, '_blank');
-            }
-        }
-    // 1. Real-time Update (Naya banda aate hi update hoga)
-    _supabase.channel('founders-realtime').on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'founders' }, () => {
-        updateStats();
-        loadWall(); 
-    }).subscribe();
+async function loadWall() {
+    const { data: founders, error } = await _supabase
+        .from('founders')
+        .select('name, tier')
+        .order('amount', { ascending: false })
+        .limit(24);
 
-    // 2. Page Load par pehli baar chalane ke liye
-    updateStats();
-    loadWall();
+    if (error) { console.error("Error loading wall:", error); return; }
 
+    const wall = document.getElementById('wall-of-fame');
+    if (founders && founders.length > 0) {
+        wall.innerHTML = founders.map((f, index) => {
+            let color = f.tier === 'Gold' ? '#D4AF37' : (f.tier === 'Silver' ? '#C0C0C0' : '#CD7F32');
+            return `
+                <div class="founder-card" style="animation: cardAppear 0.8s ease-out forwards; animation-delay: ${index * 0.1}s">
+                    <div class="card-content">
+                        <i class="fas fa-crown" style="color: ${color}; font-size: 0.9rem;"></i>
+                        <div style="color: #fff; font-size: 0.85rem; font-weight: 700; margin-top: 5px;">${f.name}</div>
+                        <div style="color: ${color}; font-size: 0.6rem; font-weight: bold; text-transform: uppercase;">${f.tier}</div>
+                    </div>
+                </div>`;
+        }).join('');
+    }
+}
+
+// Dono functions ko yahan call karein
+updateStats();
+loadWall();
     // 3. Custom Amount Function
     function setCustomAmt(amt) { document.getElementById('custom-amount-input').value = amt; }
 
@@ -571,5 +576,6 @@ async function updateStats() {
 </script>
 
 </body> </html>
+
 
 
