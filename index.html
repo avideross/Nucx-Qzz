@@ -298,7 +298,53 @@
             <div id="paypal-gold"></div>
         </div>
     </div>
+<div class="wall-section" style="margin: 80px 0; padding: 0 20px; position: relative;">
+    <h3 class="glow-text" style="text-align: center; color: var(--gold); font-family: 'Playfair Display', serif; letter-spacing: 5px; margin-bottom: 5px; font-size: 2rem;">WALL OF FAME</h3>
+    <p style="text-align: center; color: #888; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 40px; letter-spacing: 2px;">The Legends of Foundation 250</p>
+    
+    <div id="wall-of-fame" class="founder-grid">
+        </div>
+</div>
 
+<style>
+    .glow-text {
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.2);
+        animation: textPulse 3s infinite ease-in-out;
+    }
+    .founder-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 20px;
+        justify-content: center;
+    }
+    .founder-card {
+        background: linear-gradient(145deg, #161616, #0a0a0a);
+        padding: 20px 10px;
+        border-radius: 20px;
+        border: 1px solid #222;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .founder-card:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        border-color: var(--gold);
+    }
+    .card-content { position: relative; z-index: 2; background: #111; border-radius: 18px; padding: 10px 5px; }
+    @keyframes textPulse {
+        0%, 100% { opacity: 0.8; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.05); }
+    }
+    <div class="wall-section" style="margin: 60px 0; text-align: center;">
+    <h2 style="color: var(--gold); font-family: 'Playfair Display'; letter-spacing: 3px; text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);">WALL OF FAME</h2>
+    <p style="color: #666; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 20px;">The Legends of Foundation 250</p>
+    
+    <div id="wall-of-fame" class="founder-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; padding: 20px;">
+        </div>
+</div>
+</style>
       <div class="custom-donation-box">
         <h3 style="color: var(--gold); margin-top: 0;">Support Your Way</h3>
         <p style="font-size: 0.9rem; color: #888;">Every small contribution will take us closer to our goal.</p>
@@ -426,15 +472,56 @@ async function updateStats() {
         document.getElementById('visitor-count').innerText = newCount;
     }
 }
-    // Real-time Update
+
+            if (navigator.share) {
+                navigator.share({
+                    title: shareTitle,
+                    text: shareText,
+                    url: shareUrl
+                }).catch((err) => console.log("Error sharing:", err));
+            } else {
+                // PC Users ke liye default WhatsApp
+                window.open(`https://wa.me/?text=${encodeURIComponent(fullMessage)}`, '_blank');
+            }
+        }
+    // 1. Real-time Update (Naya banda aate hi update hoga)
     _supabase.channel('founders-realtime').on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'founders' }, () => {
         updateStats();
+        loadWall(); 
     }).subscribe();
 
+    // 2. Page Load par pehli baar chalane ke liye
     updateStats();
+    loadWall();
 
+    // 3. Custom Amount Function
     function setCustomAmt(amt) { document.getElementById('custom-amount-input').value = amt; }
 
+    // 4. Wall of Fame Loader (Independent Function)
+    async function loadWall() {
+        const { data: founders } = await _supabase
+            .from('founders')
+            .select('name, tier')
+            .order('amount', { ascending: false })
+            .limit(24);
+
+        const wall = document.getElementById('wall-of-fame');
+        if (founders && founders.length > 0) {
+            wall.innerHTML = founders.map((f, index) => {
+                let color = f.tier === 'Gold' ? '#D4AF37' : (f.tier === 'Silver' ? '#C0C0C0' : '#CD7F32');
+                return `
+                    <div class="founder-card" style="animation: cardAppear 0.8s ease-out forwards; animation-delay: ${index * 0.1}s">
+                        <div class="card-content">
+                            <i class="fas fa-crown" style="color: ${color}; font-size: 0.9rem;"></i>
+                            <div style="color: #fff; font-size: 0.85rem; font-weight: 700; margin-top: 5px;">${f.name}</div>
+                            <div style="color: ${color}; font-size: 0.6rem; font-weight: bold;">${f.tier} FOUNDER</div>
+                        </div>
+                    </div>`;
+            }).join('');
+        }
+    }
+
+    // 5. PayPal Buttons Logic
     function setupBtn(id, inrAmt, tier, isCustom = false) {
         paypal.Buttons({
             createOrder: (data, actions) => {
@@ -442,30 +529,27 @@ async function updateStats() {
                 if(!amt || amt <= 0) { alert("Sahi amount likhein!"); return; }
                 return actions.order.create({ purchase_units: [{ amount: { value: (amt/83).toFixed(2), currency_code: 'USD' } }] });
             },
-            // setupBtn function ke andar 'onApprove' wale hisse mein ye change karo:
-
-onApprove: (data, actions) => actions.order.capture().then(async (details) => {
-    let amt = isCustom ? document.getElementById('custom-amount-input').value : inrAmt;
-    
-    // Supabase mein Name ke saath Email bhi save hoga
-    await _supabase.from('founders').insert([{ 
-        name: details.payer.name.given_name, 
-        email: details.payer.email_address, // Ye PayPal se email uthayega
-        amount: Number(amt), 
-        tier: tier 
-    }]);
-    
-    updateStats();
-    alert("Thank you! Hum aapko 7 days ke andar email bhejenge.");
+            onApprove: (data, actions) => actions.order.capture().then(async (details) => {
+                let amt = isCustom ? document.getElementById('custom-amount-input').value : inrAmt;
+                await _supabase.from('founders').insert([{ 
+                    name: details.payer.name.given_name, 
+                    email: details.payer.email_address, 
+                    amount: Number(amt), 
+                    tier: tier 
+                }]);
+                updateStats();
+                loadWall(); // Payment ke baad wall refresh hogi
+                alert("Thank you! Hum aapko 7 days ke andar email bhejenge.");
             })
         }).render(id);
     }
 
+    // 6. Buttons Initialize
     setupBtn('#paypal-bronze', 200, 'Bronze'); 
     setupBtn('#paypal-silver', 800, 'Silver'); 
     setupBtn('#paypal-gold', 1500, 'Gold');
     setupBtn('#paypal-custom-container', 0, 'Custom', true);
-
+    
   // Purana function delete karke ye naya wala paste karo
     function shareLink(platform = 'native') {
         const shareTitle = 'Rise Eastern (Foundation 250)';
@@ -483,19 +567,9 @@ onApprove: (data, actions) => actions.order.capture().then(async (details) => {
             window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, '_blank');
         } else {
             // Native Share (Mobile menu)
-            if (navigator.share) {
-                navigator.share({
-                    title: shareTitle,
-                    text: shareText,
-                    url: shareUrl
-                }).catch((err) => console.log("Error sharing:", err));
-            } else {
-                // PC Users ke liye default WhatsApp
-                window.open(`https://wa.me/?text=${encodeURIComponent(fullMessage)}`, '_blank');
-            }
-        }
     }
 </script>
 
 </body> </html>
+
 
