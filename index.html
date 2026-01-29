@@ -449,79 +449,86 @@
 
 </div> ```
 <script>
-// 1. Supabase Connection Initialize
+// 1. Connection Initialize
 const _supabase = supabase.createClient('https://xbjdwrehyqcnymtilqjk.supabase.co', 'sb_publishable_dm27O-VDWEqq1HC4WmtwRw__3w_nXK9');
 
 // 2. Stats & Progress Logic
 async function updateStats() {
-    const { data: foundersData, error } = await _supabase.from('founders').select('amount');
-    if (error) { console.error("Error fetching stats:", error); return; }
+    try {
+        const { data: foundersData, error: fError } = await _supabase.from('founders').select('amount');
+        if (fError) throw fError;
 
-    if (foundersData) {
-        let donors = foundersData.length;
-        let money = foundersData.reduce((sum, row) => sum + Number(row.amount), 0);
-        
-        // Dashboard Numbers
-        document.getElementById('founder-count').innerText = donors;
-        document.getElementById('fund-total').innerText = money.toLocaleString('en-IN');
-        
-        // Progress Bars Fill Logic
-        if(document.getElementById('founder-meter')) 
-            document.getElementById('founder-meter').style.width = (donors / 250 * 100) + "%";
-        if(document.getElementById('fund-meter')) 
-            document.getElementById('fund-meter').style.width = Math.min((money / 500000 * 100), 100) + "%";
-    }
+        if (foundersData) {
+            let donors = foundersData.length;
+            let money = foundersData.reduce((sum, row) => sum + Number(row.amount), 0);
+            
+            // Dashboard Numbers Update
+            const fCountEl = document.getElementById('founder-count');
+            const fTotalEl = document.getElementById('fund-total');
+            if(fCountEl) fCountEl.innerText = donors;
+            if(fTotalEl) fTotalEl.innerText = money.toLocaleString('en-IN');
+            
+            // Progress Bars Fill Logic
+            const fMeter = document.getElementById('founder-meter');
+            const fundMeter = document.getElementById('fund-meter');
+            if(fMeter) fMeter.style.width = (donors / 250 * 100) + "%";
+            if(fundMeter) fundMeter.style.width = Math.min((money / 500000 * 100), 100) + "%";
+        }
 
-    // Visitor Counter Logic
-    const { data: stats } = await _supabase.from('site_stats').select('visitor_count').eq('id', 'main_site').single();
-    if (stats) {
-        const newCount = stats.visitor_count + 1;
-        await _supabase.from('site_stats').update({ visitor_count: newCount }).eq('id', 'main_site');
-        document.getElementById('visitor-count').innerText = newCount;
+        // Visitor Counter Logic
+        const { data: stats, error: sError } = await _supabase.from('site_stats').select('visitor_count').eq('id', 'main_site').single();
+        if (sError) throw sError;
+        
+        if (stats) {
+            const newCount = stats.visitor_count + 1;
+            await _supabase.from('site_stats').update({ visitor_count: newCount }).eq('id', 'main_site');
+            const vCountEl = document.getElementById('visitor-count');
+            if(vCountEl) vCountEl.innerText = newCount;
+        }
+    } catch (err) {
+        console.error("Supabase Error:", err.message);
     }
 }
 
-// 3. Wall of Fame Loader (Automatic Celebration Entry)
+// 3. Wall of Fame Loader
 async function loadWall() {
-    const { data: founders, error } = await _supabase
-        .from('founders')
-        .select('name, tier')
-        .order('amount', { ascending: false })
-        .limit(24);
+    try {
+        const { data: founders, error } = await _supabase
+            .from('founders')
+            .select('name, tier')
+            .order('amount', { ascending: false })
+            .limit(24);
 
-    if (error) { console.error("Error loading wall:", error); return; }
+        if (error) throw error;
 
-    const wall = document.getElementById('wall-of-fame');
-    if (wall && founders && founders.length > 0) {
-        wall.innerHTML = founders.map((f, index) => {
-            let color = f.tier === 'Gold' ? '#D4AF37' : (f.tier === 'Silver' ? '#C0C0C0' : '#CD7F32');
-            return `
-                <div class="founder-card" style="animation: cardAppear 0.8s ease-out forwards; animation-delay: ${index * 0.1}s">
-                    <div class="card-content">
-                        <i class="fas fa-crown" style="color: ${color}; font-size: 0.9rem;"></i>
-                        <div style="color: #fff; font-size: 0.85rem; font-weight: 700; margin-top: 5px;">${f.name}</div>
-                        <div style="color: ${color}; font-size: 0.6rem; font-weight: bold; text-transform: uppercase;">${f.tier} FOUNDER</div>
-                    </div>
-                </div>`;
-        }).join('');
+        const wall = document.getElementById('wall-of-fame');
+        if (wall && founders && founders.length > 0) {
+            wall.innerHTML = founders.map((f, index) => {
+                let color = f.tier === 'Gold' ? '#D4AF37' : (f.tier === 'Silver' ? '#C0C0C0' : '#CD7F32');
+                return `
+                    <div class="founder-card" style="animation: cardAppear 0.8s ease-out forwards; animation-delay: ${index * 0.1}s">
+                        <div class="card-content">
+                            <i class="fas fa-crown" style="color: ${color}; font-size: 0.9rem;"></i>
+                            <div style="color: #fff; font-size: 0.85rem; font-weight: 700; margin-top: 5px;">${f.name}</div>
+                            <div style="color: ${color}; font-size: 0.6rem; font-weight: bold; text-transform: uppercase;">${f.tier} FOUNDER</div>
+                        </div>
+                    </div>`;
+            }).join('');
+        }
+    } catch (err) {
+        console.error("Wall Error:", err.message);
     }
 }
 
-// Dono functions ko yahan call karein taaki page khulte hi chalein
-updateStats();
-loadWall();
+// 4. Custom Amount Helper
+function setCustomAmt(amt) { 
+    const input = document.getElementById('custom-amount-input');
+    if(input) input.value = amt; 
+}
 
-// 4. Real-time Update (Naya banda aate hi bina refresh kiye update hoga)
-_supabase.channel('founders-realtime').on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'founders' }, () => {
-    updateStats();
-    loadWall();
-}).subscribe();
-
-// 5. Custom Amount Helper
-function setCustomAmt(amt) { document.getElementById('custom-amount-input').value = amt; }
-
-// 6. PayPal Logic
+// 5. PayPal Logic
 function setupBtn(id, inrAmt, tier, isCustom = false) {
+    if(!document.querySelector(id)) return;
     paypal.Buttons({
         createOrder: (data, actions) => {
             let amt = isCustom ? document.getElementById('custom-amount-input').value : inrAmt;
@@ -543,11 +550,22 @@ function setupBtn(id, inrAmt, tier, isCustom = false) {
     }).render(id);
 }
 
-// 7. Initialize PayPal Buttons
-setupBtn('#paypal-bronze', 200, 'Bronze'); 
-setupBtn('#paypal-silver', 800, 'Silver'); 
-setupBtn('#paypal-gold', 1500, 'Gold');
-setupBtn('#paypal-custom-container', 0, 'Custom', true);
+// 6. INITIALIZE ALL
+window.onload = () => {
+    updateStats();
+    loadWall();
+    
+    // Real-time Update
+    _supabase.channel('founders-realtime').on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'founders' }, () => {
+        updateStats();
+        loadWall();
+    }).subscribe();
+
+    // Buttons
+    setupBtn('#paypal-bronze', 200, 'Bronze'); 
+    setupBtn('#paypal-silver', 800, 'Silver'); 
+    setupBtn('#paypal-gold', 1500, 'Gold');
+    setupBtn('#paypal-custom-container', 0, 'Custom', true);
     
   // Purana function delete karke ye naya wala paste karo
     function shareLink(platform = 'native') {
@@ -570,6 +588,7 @@ setupBtn('#paypal-custom-container', 0, 'Custom', true);
 </script>
 
 </body> </html>
+
 
 
 
