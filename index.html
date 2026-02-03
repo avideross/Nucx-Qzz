@@ -403,92 +403,146 @@
 </div> ```
 <script>
     // Supabase Connection
-    const _supabase = supabase.createClient('https://xbjdwrehyqcnymtilqjk.supabase.co', 'sb_publishable_dm27O-VDWEqq1HC4WmtwRw__3w_nXK9');
+const _supabase = supabase.createClient(
+  'https://xbjdwrehyqcnymtilqjk.supabase.co',
+  'sb_publishable_dm27O-VDWEqq1HC4WmtwRw__3w_nXK9'
+);
 
+/* =======================
+   MAIN STATS FUNCTION
+======================= */
 async function updateStats() {
-    // 1. FOUNDERS DATA (Isse progress bar chalega)
-    const { data: foundersData } = await _supabase.from('founders').select('amount');
-    if (foundersData) {
-        let donors = foundersData.length;
-        let money = foundersData.reduce((sum, row) => sum + Number(row.amount), 0);
-        document.getElementById('founder-count').innerText = donors;
-        document.getElementById('fund-total').innerText = money.toLocaleString('en-IN');
-        document.getElementById('founder-meter').style.width = (donors / 250 * 100) + "%";
-        document.getElementById('fund-meter').style.width = Math.min((money / 500000 * 100), 100) + "%";
-    }
 
-// 2. VISITOR COUNT (SESSION SAFE - NO REFRESH INFLATION)
-const visited = sessionStorage.getItem("rise_visited");
+  /* 1️⃣ FOUNDERS + FUND DATA (DATABASE SE) */
+  const { data: foundersData, error: fErr } = await _supabase
+    .from('founders')
+    .select('amount');
 
-if (!visited) {
+  if (!fErr && foundersData) {
+    const donors = foundersData.length;
+    const money = foundersData.reduce(
+      (sum, row) => sum + Number(row.amount || 0),
+      0
+    );
+
+    document.getElementById('founder-count').innerText = donors;
+    document.getElementById('fund-total').innerText =
+      money.toLocaleString('en-IN');
+
+    document.getElementById('founder-meter').style.width =
+      Math.min((donors / 250) * 100, 100) + "%";
+
+    document.getElementById('fund-meter').style.width =
+      Math.min((money / 500000) * 100, 100) + "%";
+  }
+
+  /* 2️⃣ VISITOR COUNT (SESSION SAFE) */
+  const visited = sessionStorage.getItem("rise_visited");
+
+  if (!visited) {
     const { data: stats } = await _supabase
-        .from('site_stats')
-        .select('visitor_count')
-        .eq('id', 'main_site')
-        .single();
+      .from('site_stats')
+      .select('visitor_count')
+      .eq('id', 'main_site')
+      .single();
 
     if (stats) {
-        const newCount = stats.visitor_count + 1;
+      const newCount = stats.visitor_count + 1;
 
-        await _supabase
-            .from('site_stats')
-            .update({ visitor_count: newCount })
-            .eq('id', 'main_site');
-
-        document.getElementById('visitor-count').innerText = newCount;
-        sessionStorage.setItem("rise_visited", "true");
-    }
-} else {
-    const { data: stats } = await _supabase
+      await _supabase
         .from('site_stats')
-        .select('visitor_count')
-        .eq('id', 'main_site')
-        .single();
+        .update({ visitor_count: newCount })
+        .eq('id', 'main_site');
+
+      document.getElementById('visitor-count').innerText = newCount;
+      sessionStorage.setItem("rise_visited", "true");
+    }
+  } else {
+    const { data: stats } = await _supabase
+      .from('site_stats')
+      .select('visitor_count')
+      .eq('id', 'main_site')
+      .single();
 
     if (stats) {
-        document.getElementById('visitor-count').innerText = stats.visitor_count;
+      document.getElementById('visitor-count').innerText =
+        stats.visitor_count;
     }
+  }
 }
 
-    // Real-time Update
-    _supabase.channel('founders-realtime').on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'founders' }, () => {
+/* =======================
+   REAL-TIME FOUNDER UPDATE
+======================= */
+_supabase
+  .channel('founders-realtime')
+  .on(
+    'postgres_changes',
+    { event: 'INSERT', schema: 'public', table: 'founders' },
+    () => updateStats()
+  )
+  .subscribe();
+
+/* =======================
+   PAGE LOAD CALL (MUST)
+======================= */
+updateStats();
+
+/* =======================
+   PAYPAL HELPERS
+======================= */
+function setCustomAmt(amt) {
+  document.getElementById('custom-amount-input').value = amt;
+}
+
+function setupBtn(id, inrAmt, tier, isCustom = false) {
+  paypal.Buttons({
+    createOrder: (data, actions) => {
+      const amt = isCustom
+        ? document.getElementById('custom-amount-input').value
+        : inrAmt;
+
+      if (!amt || amt <= 0) {
+        alert("Sahi amount likhein!");
+        return;
+      }
+
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: (amt / 83).toFixed(2),
+            currency_code: 'USD'
+          }
+        }]
+      });
+    },
+
+    onApprove: (data, actions) =>
+      actions.order.capture().then(async (details) => {
+        const amt = isCustom
+          ? document.getElementById('custom-amount-input').value
+          : inrAmt;
+
+        await _supabase.from('founders').insert([{
+          name: details.payer.name.given_name,
+          email: details.payer.email_address,
+          amount: Number(amt),
+          tier: tier
+        }]);
+
         updateStats();
-    }).subscribe();
+        alert("Thank you! Hum aapko 7 days ke andar email bhejenge.");
+      })
+  }).render(id);
+}
 
-    updateStats();
-
-    function setCustomAmt(amt) { document.getElementById('custom-amount-input').value = amt; }
-
-    function setupBtn(id, inrAmt, tier, isCustom = false) {
-        paypal.Buttons({
-            createOrder: (data, actions) => {
-                let amt = isCustom ? document.getElementById('custom-amount-input').value : inrAmt;
-                if(!amt || amt <= 0) { alert("Sahi amount likhein!"); return; }
-                return actions.order.create({ purchase_units: [{ amount: { value: (amt/83).toFixed(2), currency_code: 'USD' } }] });
-            },
-            // setupBtn function ke andar 'onApprove' wale hisse mein ye change karo:
-
-onApprove: (data, actions) => actions.order.capture().then(async (details) => {
-    let amt = isCustom ? document.getElementById('custom-amount-input').value : inrAmt;
-    
-    // Supabase mein Name ke saath Email bhi save hoga
-    await _supabase.from('founders').insert([{ 
-        name: details.payer.name.given_name, 
-        email: details.payer.email_address, // Ye PayPal se email uthayega
-        amount: Number(amt), 
-        tier: tier 
-    }]);
-    
-    updateStats();
-    alert("Thank you! Hum aapko 7 days ke andar email bhejenge.");
-            })
-        }).render(id);
-    }
-
-    setupBtn('#paypal-bronze', 200, 'Bronze'); 
-    setupBtn('#paypal-silver', 800, 'Silver'); 
-    setupBtn('#paypal-gold', 1500, 'Gold');
-    setupBtn('#paypal-custom-container', 0, 'Custom', true);
+/* =======================
+   PAYPAL BUTTONS
+======================= */
+setupBtn('#paypal-bronze', 200, 'Bronze');
+setupBtn('#paypal-silver', 800, 'Silver');
+setupBtn('#paypal-gold', 1500, 'Gold');
+setupBtn('#paypal-custom-container', 0, 'Custom', true);
 
   // Purana function delete karke ye naya wala paste karo
     function shareLink(platform = 'native') {
@@ -532,6 +586,7 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 </body> </html>
+
 
 
 
