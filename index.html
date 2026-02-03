@@ -417,14 +417,39 @@ async function updateStats() {
         document.getElementById('fund-meter').style.width = Math.min((money / 500000 * 100), 100) + "%";
     }
 
-    // 2. VISITOR COUNT (Isse aapka visitor counter chalega)
-    const { data: stats } = await _supabase.from('site_stats').select('visitor_count').eq('id', 'main_site').single();
+// 2. VISITOR COUNT (SESSION SAFE - NO REFRESH INFLATION)
+const visited = sessionStorage.getItem("rise_visited");
+
+if (!visited) {
+    const { data: stats } = await _supabase
+        .from('site_stats')
+        .select('visitor_count')
+        .eq('id', 'main_site')
+        .single();
+
     if (stats) {
         const newCount = stats.visitor_count + 1;
-        await _supabase.from('site_stats').update({ visitor_count: newCount }).eq('id', 'main_site');
+
+        await _supabase
+            .from('site_stats')
+            .update({ visitor_count: newCount })
+            .eq('id', 'main_site');
+
         document.getElementById('visitor-count').innerText = newCount;
+        sessionStorage.setItem("rise_visited", "true");
+    }
+} else {
+    const { data: stats } = await _supabase
+        .from('site_stats')
+        .select('visitor_count')
+        .eq('id', 'main_site')
+        .single();
+
+    if (stats) {
+        document.getElementById('visitor-count').innerText = stats.visitor_count;
     }
 }
+
     // Real-time Update
     _supabase.channel('founders-realtime').on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'founders' }, () => {
         updateStats();
@@ -507,6 +532,7 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 </body> </html>
+
 
 
 
