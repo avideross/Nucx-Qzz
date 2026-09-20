@@ -1,318 +1,406 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nucx-Qzz - Premium Document Correction & Design</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body class="bg-slate-50 font-sans text-slate-800">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>NUCX.QZZ.IO | Free Fire Lag Fix, Sensitivity & Gaming Hub</title>
+  <meta name="title" content="NUCX.QZZ.IO | Free Fire Lag Fix, Sensitivity & Gaming Hub">
+  <meta name="description" content="Get the best Free Fire performance configs, lag fix guides, 60/90 FPS boost tricks, headshot sensitivity settings, and community files on Telegram @nucxqzzhack.">
+  <meta name="keywords" content="Free Fire lag fix 2GB 3GB RAM, Free Fire best sensitivity settings, Free Fire FPS boost config, Free Fire ping problem solution, NUCX QZZ IO, Free Fire telegram channel">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nucx.qzz.io/">
 
-    <header class="bg-slate-900 text-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center">
-            <h1 class="text-2xl font-black tracking-tight flex items-center gap-2 text-blue-400">
-                <i class="fa-solid fa-shield-halved"></i> Nucx-Qzz
-            </h1>
-            <nav class="mt-3 sm:mt-0 flex gap-4 sm:gap-6 text-sm font-medium">
-                <a href="#features" class="hover:text-blue-400 transition">Why Us</a>
-                <a href="#pricing" class="hover:text-blue-400 transition">Pricing</a>
-                <a href="#workflow" class="hover:text-blue-400 transition">How it Works</a>
-                <a href="#reviews" class="hover:text-blue-400 transition">Reviews</a>
-                <a href="#secure-order" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition text-white">Secure Order</a>
-            </nav>
-        </div>
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nucx.qzz.io/">
+  <meta property="og:title" content="NUCX.QZZ.IO — Gaming Resources & Community">
+  <meta property="og:description" content="All-in-one hub for Free Fire lag fix, display optimization, and instant Telegram resource drops.">
+  <meta property="og:image" content="https://nucx.qzz.io/og-image.jpg">
+
+  <!-- Structured Data: FAQ Schema (Helps rank in Google rich snippets) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Free Fire me lag kaise fix karein 2GB ya 3GB RAM phones me?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Game graphics ko Smooth par set karein, background apps band karein, cache clear karein aur NUCX community ke tested optimization config guides apply karein jo Telegram channel par available hain."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "NUCX QZZ files download kaise karein?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sabhi latest update files, lag fix configs aur performance resources direct hamare official Telegram channel @nucxqzzhack par daily update hote hain."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Best Free Fire sensitivity settings kya hai perfect aim ke liye?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "General sensitivity ko 95-100, Red Dot ko 90-95, aur 2X/4X scope ko 80-88 par adjust karein. Complete device-wise list NUCX channel me detailed hai."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #05070B;
+      --surface: #0B1018;
+      --surface-light: #111723;
+      --border: #172231;
+      --cyan: #00A8FF;
+      --blue: #0066FF;
+      --text: #F5F7FA;
+      --muted: #8B95A5;
+      --accent: #FF3366;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0 16px 40px;
+    }
+    .wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    /* Sticky Top Notification */
+    .top-bar {
+      background: rgba(0, 168, 255, 0.08);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      padding: 10px;
+      font-size: 0.85rem;
+      color: var(--cyan);
+      margin: 0 -16px 30px;
+    }
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 20px 0 35px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--cyan);
+      background: rgba(0, 168, 255, 0.12);
+      border: 1px solid rgba(0, 168, 255, 0.3);
+      border-radius: 30px;
+      margin-bottom: 16px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #A5C9EB 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 28px;
+    }
+    /* Main CTA Box */
+    .cta-card {
+      background: linear-gradient(180deg, var(--surface-light) 0%, var(--surface) 100%);
+      border: 1px solid rgba(0, 168, 255, 0.25);
+      border-radius: 18px;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      margin-bottom: 40px;
+    }
+    .cta-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #FFFFFF;
+    }
+    .cta-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+    .btn-telegram {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 420px;
+      padding: 16px 24px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 168, 255, 0.35);
+      transition: all 0.2s ease;
+    }
+    .btn-telegram:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 168, 255, 0.5);
+    }
+    .channel-handle {
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .channel-handle span {
+      color: var(--cyan);
+      font-weight: 600;
+    }
+    /* Resource Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 45px;
+    }
+    .grid-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .grid-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .grid-item p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    /* SEO Content Section */
+    .content-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px 24px;
+      margin-bottom: 35px;
+    }
+    .content-block h2 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: #FFFFFF;
+      border-left: 4px solid var(--cyan);
+      padding-left: 12px;
+    }
+    .content-block h3 {
+      font-size: 1.15rem;
+      margin: 20px 0 8px;
+      color: #E2E8F0;
+    }
+    .content-block p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .content-block ul {
+      margin: 10px 0 16px 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .content-block li {
+      margin-bottom: 8px;
+    }
+    /* FAQ Section */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-q {
+      font-weight: 600;
+      color: #FFFFFF;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    /* Sticky Bottom Mobile Bar */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(11, 16, 24, 0.95);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border);
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    .sticky-bar span {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+    .btn-sticky {
+      background: var(--cyan);
+      color: #05070B;
+      padding: 8px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding: 20px 0 60px;
+    }
+    footer a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    ⚡ Latest Patch Files & Performance Updates Live on Telegram
+  </div>
+
+  <div class="wrapper">
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="badge">Performance Hub</div>
+      <h1>NUCX.QZZ.IO</h1>
+      <p>Free Fire Device Optimization, Sensitivity Setups, Lag Fix Files & Instant Community Resource Drops.</p>
     </header>
 
-    <section class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white py-20 px-4 text-center border-b border-slate-800">
-        <div class="max-w-3xl mx-auto">
-            <span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
-                <i class="fa-solid fa-lock mr-1"></i> 100% Encrypted & Private Service
-            </span>
-            <h2 class="text-4xl sm:text-6xl font-black mt-5 mb-6 leading-tight tracking-tight">
-                Professional Document <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400">Correction & Editing</span>
-            </h2>
-            <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-2xl mb-8 backdrop-blur-sm">
-                <p class="text-base sm:text-lg text-slate-300">
-                    <span class="text-yellow-400 font-bold">LIMITED BOGO OFFER:</span> Agar aap hamse <strong class="text-white">2 Big 1-Page Certificates</strong> correct karwate hain, toh hum aapka <strong class="text-yellow-400">1 Card (ID/Visiting)</strong> bilkul free me edit karenge!
-                </p>
-            </div>
-            <a href="#secure-order" class="bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-blue-500/20 transition transform hover:-translate-y-0.5 inline-flex items-center gap-2">
-                <i class="fa-solid fa-paper-plane"></i> Start Secure Order
-            </a>
-        </div>
+    <!-- Conversion Box (Target: Telegram Audience) -->
+    <section class="cta-card">
+      <div class="cta-title">🎮 Join The Official Resource Channel</div>
+      <p class="cta-desc">
+        Daily configs, 60 FPS lock guides, ping problem fixes aur exclusive tools direct channel me upload hote hain. Koi third-party ads ya survey bypass nahi.
+      </p>
+      <a href="https://t.me/nucxqzzhack" target="_blank" rel="noopener noreferrer" class="btn-telegram">
+        JOIN TELEGRAM CHANNEL ➔
+      </a>
+      <div class="channel-handle">Official Channel: <span>@nucxqzzhack</span></div>
     </section>
 
-    <section class="bg-slate-100 py-10 px-4 border-b border-slate-200 shadow-inner">
-        <div class="container mx-auto max-w-2xl bg-white p-6 rounded-2xl shadow-md border border-slate-200 text-center">
-            <div class="text-indigo-600 text-2xl mb-2"><i class="fa-solid fa-quote-left"></i></div>
-            <p id="positive-share-text" class="text-slate-700 font-medium text-sm sm:text-base leading-relaxed px-2 sm:px-6 mb-6">
-                "Nucx-Qzz (nucx.qzz.io) ek behtareen aur highly secure platform hai jahan ID Cards, Visiting Cards aur Certificates ki correction bilkul expert aur accurate level par hoti hai, wo bhi 100% privacy ke sath!"
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-3">
-                <button onclick="copyShareText()" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold py-2.5 px-5 rounded-xl transition flex items-center justify-center gap-2 shadow">
-                    <i id="copy-icon" class="fa-solid fa-copy"></i> <span id="copy-btn-text">Copy Text</span>
-                </button>
-                <button onclick="sharePlatform()" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2.5 px-5 rounded-xl transition flex items-center justify-center gap-2 shadow">
-                    <i class="fa-solid fa-share-nodes"></i> Share with Anyone
-                </button>
-            </div>
-        </div>
+    <!-- Key Categories (Quick Value) -->
+    <section class="grid">
+      <div class="grid-item">
+        <h3>⚡ 60/90 FPS Configs</h3>
+        <p>Ultra-smooth rendering setups specifically tuned for 2GB, 3GB, and 4GB RAM mobile devices.</p>
+      </div>
+      <div class="grid-item">
+        <h3>🎯 Sensitivity Guides</h3>
+        <p>Custom DPI, General, and Scope sensitivity calibrations for stable recoil and drag precision.</p>
+      </div>
+      <div class="grid-item">
+        <h3>📶 High Ping Solution</h3>
+        <p>DNS and network route optimizations to fix 999+ ping and packet loss during squad matches.</p>
+      </div>
     </section>
 
-    <section id="features" class="bg-white py-16 border-b border-slate-100">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <div class="text-center mb-12">
-                <h3 class="text-2xl sm:text-3xl font-bold text-slate-950">Why Choose Nucx-Qzz?</h3>
-                <p class="text-slate-500 mt-2">Aapke files ki security aur quality hamari top priority hai.</p>
-            </div>
-            <div class="grid sm:grid-cols-3 gap-8">
-                <div class="text-center p-4">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto text-xl mb-4">
-                        <i class="fa-solid fa-font"></i>
-                    </div>
-                    <h5 class="font-bold text-lg mb-2">Perfect Font Matching</h5>
-                    <p class="text-slate-600 text-sm">Hum original document ka exact font, style aur size match karke edit karte hain taaki badlav bilkul real aur clean lage.</p>
-                </div>
-                <div class="text-center p-4">
-                    <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto text-xl mb-4">
-                        <i class="fa-solid fa-user-secret"></i>
-                    </div>
-                    <h5 class="font-bold text-lg mb-2">Absolute Privacy</h5>
-                    <p class="text-slate-600 text-sm">Work complete hone ke baad aapka sara data aur files hamare system se permanently delete kar diye jaate hain.</p>
-                </div>
-                <div class="text-center p-4">
-                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto text-xl mb-4">
-                        <i class="fa-solid fa-credit-card"></i>
-                    </div>
-                    <h5 class="font-bold text-lg mb-2">Safe UPI Payments</h5>
-                    <p class="text-slate-600 text-sm">Jab aapka document ready ho jaye, tab safe aur easy UPI tracking ke zariye payment complete karte hain.</p>
-                </div>
-            </div>
+    <!-- Detailed SEO Ranking Content -->
+    <article class="content-block">
+      <h2>Free Fire Lag Fix & Performance Optimization Guide</h2>
+      <p>
+        Free Fire update ke baad budget smartphones (2GB & 3GB RAM) par frame drops aur stuttering ek normal issue ban chuka hai. NUCX.QZZ.IO ek focused community platform hai jo real gameplay mechanics aur Android system optimization par focus karta hai bina kisi illegal hack ya harmful scripts ke.
+      </p>
+
+      <h3>1. Background Process & RAM Management</h3>
+      <p>
+        Jab RAM fill ho jaati hai, tab game sudden freeze hota hai. Match start karne se pehle ye basic steps zaroor follow karein:
+      </p>
+      <ul>
+        <li><strong>Developer Options:</strong> Background Process Limit ko "At most 2 processes" par set karein.</li>
+        <li><strong>App Cache:</strong> System storage se heavy social apps ka temporary cache data wipe karein.</li>
+        <li><strong>Game Space / Turbo:</strong> Device ke default game booster me background sync disable karein.</li>
+      </ul>
+
+      <h3>2. Display & Graphics Tuning</h3>
+      <p>
+        Agar aapka device match ke beech me overheat hota hai, toh graphics ko 'Smooth' aur High FPS ko 'Normal' ya 'High' par lock karein. Device thermal throttling me jaane se FPS drop 15-20 tak gir jaata hai. Hamare Telegram channel par low-render config files verified testing ke baad di jaati hain.
+      </p>
+
+      <h3>3. Network Stabilization (Ping 999+ Fix)</h3>
+      <p>
+        Mobile data par unstable routing se ping fluctuate karta hai. Cloudflare (1.1.1.1) ya Google Public DNS use karne se packet loss drastically reduce hota hai jisse gunfights ke waqt delay nahi aata.
+      </p>
+    </article>
+
+    <!-- FAQ Section (Google Rich Snippets ke liye) -->
+    <section class="content-block">
+      <h2>Frequently Asked Questions</h2>
+      
+      <div class="faq-item">
+        <div class="faq-q">1. NUCX par available files safe hain?</div>
+        <div class="faq-a">
+          Haan, sabhi resources system-level optimization aur graphic configuration ke liye hain. Hum game-client modding ya unauthorized code host nahi karte jo account safety ko affect kare.
         </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">2. Files download karne ka process kya hai?</div>
+        <div class="faq-a">
+          Direct downloads ke liye hamara official Telegram channel <strong>@nucxqzzhack</strong> join karein. Wahan sabhi configs bina kisi fake link shortener ke direct pin kiye jate hain.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">3. Low-end device me best sensitivity kaunsi hai?</div>
+        <div class="faq-a">
+          Low-end phones ka touch response slow hota hai, isliye General sensitivity ko 100 aur Red Dot ko 95 par rakhna recommended hai. Full list channel par updated hai.
+        </div>
+      </div>
     </section>
 
-    <section id="pricing" class="container mx-auto px-4 py-16 max-w-5xl">
-        <div class="text-center mb-12">
-            <h3 class="text-3xl font-bold text-slate-950">Fixed & Transparent Pricing</h3>
-            <p class="text-slate-600 mt-2">Koi hidden charges nahi. Standard delivery time: 3 Days.</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between hover:border-blue-500 transition relative overflow-hidden">
-                <div>
-                    <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 text-lg font-bold mb-4">
-                        <i class="fa-solid fa-id-card"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-slate-900">ID Card Editing</h4>
-                    <p class="text-slate-600 text-xs mt-1 mb-4">Aadhar Card, Pan Card, Employee ID, Student Badge text/photo correction.</p>
-                </div>
-                <div>
-                    <div class="text-3xl font-black text-slate-900 mb-2">₹199 <span class="text-xs text-slate-400 font-normal">/ per card</span></div>
-                    <div class="bg-amber-50 border border-amber-200 text-amber-800 text-[11px] font-medium px-2.5 py-1 rounded-lg mb-4">
-                        <i class="fa-solid fa-bolt mr-1"></i> Get in 24 Hours: <strong>+₹59 extra</strong>
-                    </div>
-                    <a href="#secure-order" class="block w-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-center text-sm font-semibold py-2.5 rounded-xl transition">Select Service</a>
-                </div>
-            </div>
-
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between hover:border-blue-500 transition relative overflow-hidden">
-                <div>
-                    <div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 text-lg font-bold mb-4">
-                        <i class="fa-solid fa-address-card"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-slate-900">Visiting Card</h4>
-                    <p class="text-slate-600 text-xs mt-1 mb-4">Business cards layout, typo correction, or design updates.</p>
-                </div>
-                <div>
-                    <div class="text-3xl font-black text-slate-900 mb-2">₹99 <span class="text-xs text-slate-400 font-normal">/ per design</span></div>
-                    <div class="bg-amber-50 border border-amber-200 text-amber-800 text-[11px] font-medium px-2.5 py-1 rounded-lg mb-4">
-                        <i class="fa-solid fa-bolt mr-1"></i> Get in 24 Hours: <strong>+₹59 extra</strong>
-                    </div>
-                    <a href="#secure-order" class="block w-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-center text-sm font-semibold py-2.5 rounded-xl transition">Select Service</a>
-                </div>
-            </div>
-
-            <div class="bg-white p-6 rounded-2xl shadow-md border-2 border-blue-600 flex flex-col justify-between relative overflow-hidden">
-                <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-bl uppercase tracking-wider">Most Popular</div>
-                <div>
-                    <div class="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 text-lg font-bold mb-4">
-                        <i class="fa-solid fa-file-invoice"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-slate-900">Big 1-Page Certificate</h4>
-                    <p class="text-slate-600 text-xs mt-1 mb-4">Degrees, Experience Letters, Marksheets complex corrections.</p>
-                </div>
-                <div>
-                    <div class="text-3xl font-black text-slate-900 mb-1">₹299 <span class="text-xs text-slate-400 font-normal">/ per page</span></div>
-                    <p class="text-[11px] text-emerald-600 font-semibold mb-3"><i class="fa-solid fa-tags"></i> Eligible for Free Card Offer</p>
-                    <div class="bg-amber-50 border border-amber-200 text-amber-800 text-[11px] font-medium px-2.5 py-1 rounded-lg mb-4">
-                        <i class="fa-solid fa-bolt mr-1"></i> Get in 24 Hours: <strong>+₹99 extra</strong>
-                    </div>
-                    <a href="#secure-order" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center text-sm font-semibold py-2.5 rounded-xl shadow-md transition">Select Service</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="workflow" class="bg-slate-900 text-white py-16 px-4 border-t border-slate-800">
-        <div class="container mx-auto max-w-4xl">
-            <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold">Zero Doubt Payment & Delivery Process</h3>
-                <p class="text-slate-400 mt-2 text-sm">Humara simple aur trusted process jisse aapka order hamesha safe rehta hai.</p>
-            </div>
-            
-            <div class="grid sm:grid-cols-4 gap-6 relative">
-                <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700/60 text-center">
-                    <div class="text-blue-400 font-black text-xl mb-2">01</div>
-                    <h5 class="font-bold text-sm mb-1">Send Files</h5>
-                    <p class="text-slate-400 text-xs">Secure link se raw document bhejien.</p>
-                </div>
-                <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700/60 text-center">
-                    <div class="text-blue-400 font-black text-xl mb-2">02</div>
-                    <h5 class="font-bold text-sm mb-1">Editing Mode</h5>
-                    <p class="text-slate-400 text-xs">Standard (3 days) ya Express (1 day) me taiyaar.</p>
-                </div>
-                <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700/60 text-center border-dashed border-blue-500/40">
-                    <div class="text-yellow-400 font-black text-xl mb-2">03</div>
-                    <h5 class="font-bold text-sm mb-1 text-yellow-400">Easy UPI Pay</h5>
-                    <p class="text-slate-400 text-xs">Work ready hote hi aapko alert milega, UPI se pay karein.</p>
-                </div>
-                <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700/60 text-center">
-                    <div class="text-emerald-400 font-black text-xl mb-2">04</div>
-                    <h5 class="font-bold text-sm mb-1 text-emerald-400">Instant File</h5>
-                    <p class="text-slate-400 text-xs">Payment hote hi aapki final high-res file instantly deliver.</p>
-                </div>
-            </div>
-
-            <div class="mt-10 bg-blue-950/40 border border-blue-800/50 p-5 rounded-xl flex items-start gap-4 max-w-2xl mx-auto">
-                <div class="text-blue-400 text-xl mt-0.5"><i class="fa-solid fa-circle-info"></i></div>
-                <div class="text-xs text-slate-300 leading-relaxed">
-                    <strong class="text-white block mb-1">No Advance Payment Needed!</strong>
-                    Pehle hum aapka kaam final processing level tak complete karenge. Aapka trust hamare liye sabse bada asset hai. Satisfaction confirm hone par hi UPI handle par transaction process karein.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="reviews" class="bg-slate-100 py-16 px-4 border-b border-slate-200">
-        <div class="container mx-auto max-w-5xl">
-            <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-slate-950">What Our Clients Say</h3>
-                <p class="text-slate-600 mt-2">Humare secure privacy aur transparent pricing par users ka bharosa.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                    <div class="flex text-yellow-400 mb-3 text-sm">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-slate-600 text-sm italic mb-4">"Maine apna experience certificate correct karwaya tha. Font bilkul original jaisa match kiya aur sabse acchi baat ki Telegram par kaam ho gaya bina number share kiye."</p>
-                    <div class="font-bold text-slate-900 text-xs">- Amit R. (Freelancer)</div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                    <div class="flex text-yellow-400 mb-3 text-sm">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-slate-600 text-sm italic mb-4">"BOGO offer sach me real hai! Maine 2 certificates edit karwaye aur unhone mera new business visiting card free me design karke diya. Highly recommended!"</p>
-                    <div class="font-bold text-slate-900 text-xs">- Vikram Malhotra</div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                    <div class="flex text-yellow-400 mb-3 text-sm">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star text-slate-300"></i>
-                    </div>
-                    <p class="text-slate-600 text-sm italic mb-4">"Mera ID card kho gaya tha aur emergency me 1-day delivery chahiye thi. Maine ₹59 extra diye aur same day perfection ke sath kaam ho gaya. Secure and trusted."</p>
-                    <div class="font-bold text-slate-900 text-xs">- Sneha Patel</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="secure-order" class="bg-slate-900 text-white py-16 px-4">
-        <div class="container mx-auto max-w-4xl">
-            <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-white">Choose Your Secure Send Method</h3>
-                <p class="text-slate-400 mt-2 text-sm">Nucx-Qzz par aapki privacy hamari priority hai. Hum secure anonymous messaging tools use karte hain.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="bg-slate-800/80 border border-slate-700 p-6 rounded-2xl text-center flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-full flex items-center justify-center mx-auto text-xl mb-4">
-                            <i class="fa-solid fa-comments"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2">Chat via Arattai </h4>
-                        <p class="text-slate-400 text-sm mb-6">Aapki absolute data privacy ke liye hum secure Arattai messenger use karte hain. Niche diye link par click karke hamare private handle par bina number share kiye directly files drop karein.</p>
-                    </div>
-                    <a href="https://aratt.ai/user/@nucxqzz" target="_blank" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl shadow transition duration-200 flex items-center justify-center gap-2">
-                        Connect on Arattai <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                </div>
-
-                <div class="bg-slate-800/80 border border-slate-700 p-6 rounded-2xl text-center flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-indigo-500/10 text-indigo-400 rounded-full flex items-center justify-center mx-auto text-xl mb-4">
-                            <i class="fa-solid fa-comment-sms"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2">Signal Messenger</h4>
-                        <p class="text-slate-400 text-sm mb-6">Duniya ka sabse zyada secure open-source privacy app. Aap hamare Signal handle par directly documents bhej sakte hain.</p>
-                    </div>
-                    <a href="https://signal.me/#eu/2UXDGnscBQ8iE_CAND6pQALW83bdomu00o58jSJ9Hsq219IISUxH0KG4hRAhoFLo" target="_blank" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-xl shadow transition duration-200 flex items-center justify-center gap-2">
-                        Connect on Signal <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 text-center max-w-xl mx-auto">
-                <div class="text-blue-400 text-xl mb-2"><i class="fa-solid fa-envelope"></i></div>
-                <h5 class="font-bold text-white mb-1">Official Email Support</h5>
-                <p class="text-slate-400 text-xs mb-3">Aap direct apne documents aur instructions hamari safe mail handle par drop kar sakte hain.</p>
-                <a href="mailto:support@nucx.qzz.io" class="text-blue-400 hover:underline font-mono text-sm font-semibold">support@nucx.qzz.io</a>
-            </div>
-
-            <div class="mt-12 text-center text-xs text-slate-500 border-t border-slate-800 pt-6">
-                <p><i class="fa-solid fa-circle-check text-emerald-500 mr-1"></i> Order complete hote hi hum hamare system se aapki files ko permanently delete kar dete hain.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-slate-950 text-slate-500 py-10 text-center text-xs border-t border-slate-900 flex flex-col items-center gap-2">
-        <p>&copy; 2026 <span class="text-slate-400 font-bold">Nucx-Qzz</span> (nucx.qzz.io). Secured with Advanced Encryption.</p>
+    <!-- Footer -->
+    <footer>
+      <p>Support / Enquiries: <a href="mailto:support@nucx.qzz.io">support@nucx.qzz.io</a></p>
+      <p style="margin-top: 6px;">Telegram Community: <a href="https://t.me/nucxqzzhack">@nucxqzzhack</a></p>
+      <p style="margin-top: 12px; color: #4B5563;">
+        Disclaimer: NUCX.QZZ.IO is an educational community providing device performance optimization guides. We are not affiliated with or endorsed by Garena Free Fire.
+      </p>
     </footer>
 
-    <script>
-        function copyShareText() {
-            const textToCopy = document.getElementById('positive-share-text').innerText.trim();
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                const btnText = document.getElementById('copy-btn-text');
-                const icon = document.getElementById('copy-icon');
-                
-                btnText.innerText = "Copied!";
-                icon.className = "fa-solid fa-check text-emerald-500";
-                
-                setTimeout(() => {
-                    btnText.innerText = "Copy Text";
-                    icon.className = "fa-solid fa-copy text-slate-400";
-                }, 2500);
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-            });
-        }
+  </div>
 
-        function sharePlatform() {
-            const shareData = {
-                title: 'Nucx-Qzz - Premium Document Correction',
-                text: document.getElementById('positive-share-text').innerText.trim(),
-                url: 'https://nucx.qzz.io'
-            };
-
-            if (navigator.share) {
-                navigator.share(shareData)
-                    .then(() => console.log('Shared successfully'))
-                    .catch((error) => console.log('Error sharing:', error));
-            } else {
-                alert("Native share is not supported on this browser. Please click 'Copy Text' and paste it anywhere!");
-            }
-        }
-    </script>
+  <!-- Sticky Bottom Bar (Mobile Conversion Rate Badhane ke liye) -->
+  <div class="sticky-bar">
+    <span>🔥 Join Daily File Updates</span>
+    <a href="https://t.me/nucxqzzhack" target="_blank" rel="noopener noreferrer" class="btn-sticky">Join Telegram</a>
+  </div>
 
 </body>
 </html>
