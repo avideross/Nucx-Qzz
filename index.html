@@ -3,573 +3,203 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aayu Verma (VEV) | Silence Builds Legends</title>
   
-  <!-- Primary Meta Tags -->
-  <title>Free Fire Lag Fix, FPS Boost & Sensitivity Tool | NUCX.QZZ.IO</title>
-  <meta name="title" content="Free Fire Lag Fix, FPS Boost & Sensitivity Tool | NUCX.QZZ.IO">
-  <meta name="description" content="Calculate custom Free Fire headshot sensitivities for 2GB, 3GB, 4GB, and 6GB RAM devices. Fix 999+ ping, reduce frame drops, and get daily performance files on Telegram @nucxqzzhack.">
-  <meta name="keywords" content="Free Fire lag fix 2GB RAM, Free Fire 60 FPS config, best sensitivity settings for Free Fire, Free Fire ping problem solution, high headshot rate sensitivity, NUCX QZZ IO">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-  <link rel="canonical" href="https://nucx.qzz.io/">
+  <meta name="description" content="Official personal portal of Aayu Verma (VEV). Financial operator, founder of Vzixo, and builder of algorithmic execution systems.">
+  <meta name="theme-color" content="#030508">
 
-  <!-- Open Graph / Meta -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://nucx.qzz.io/">
-  <meta property="og:title" content="NUCX.QZZ.IO — Gaming Performance Engine & Tools">
-  <meta property="og:description" content="Calculate custom sensitivity, unlock 60 FPS, and eliminate frame lag on low-end Android devices.">
-  <meta property="og:image" content="https://nucx.qzz.io/og-banner.png">
-
-  <!-- Structured Data: WebSite & FAQPage Schema for Search Engines -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://nucx.qzz.io/#website",
-        "url": "https://nucx.qzz.io/",
-        "name": "NUCX.QZZ.IO",
-        "description": "Free Fire device optimization hub and sensitivity calibration utility."
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://nucx.qzz.io/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Free Fire 2GB RAM phone me lag kaise band karein?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Display setting ko Smooth par lock karein, device ke Developer Options me Background Process Limit ko 'At most 2' karein, aur match shuru karne se pehle game cache wipe karein."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Perfect one-tap headshot ke liye best sensitivity setting kya hai?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Budget devices (2GB-4GB RAM) par screen refresh rate aur touch sampling slow hoti hai, isliye General 98-100, Red Dot 95, aur 2X Scope 88-90 rakhna recommended hai."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Free Fire me high ping (999+) kaise theek karein?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Private DNS me dns.google ya 1dot1dot1dot1.cloudflare-dns.com enter karein, flight mode toggle karein, aur background bandwidth-consuming apps band karein."
-            }
-          }
-        ]
-      }
-    ]
-  }
-  </script>
-
-  <style>
-    :root {
-      --bg: #05070B;
-      --surface: #0B1018;
-      --surface-elevated: #111723;
-      --border: #172231;
-      --cyan: #00A8FF;
-      --blue: #0066FF;
-      --text: #F5F7FA;
-      --muted: #8B95A5;
-      --accent-green: #00E676;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    }
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      padding: 0 16px 60px;
-    }
-    .wrapper {
-      max-width: 820px;
-      margin: 0 auto;
-    }
-    /* Announcement Banner */
-    .top-banner {
-      background: rgba(0, 168, 255, 0.08);
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-      padding: 10px 14px;
-      font-size: 0.85rem;
-      color: var(--cyan);
-      margin: 0 -16px 28px;
-    }
-    /* Header */
-    header {
-      text-align: center;
-      padding: 16px 0 32px;
-    }
-    .badge {
-      display: inline-block;
-      padding: 6px 14px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--cyan);
-      background: rgba(0, 168, 255, 0.12);
-      border: 1px solid rgba(0, 168, 255, 0.3);
-      border-radius: 20px;
-      margin-bottom: 14px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-    h1 {
-      font-size: clamp(2rem, 5.5vw, 2.9rem);
-      line-height: 1.15;
-      margin-bottom: 14px;
-      background: linear-gradient(180deg, #FFFFFF 0%, #B8DCFF 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    header p {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 650px;
-      margin: 0 auto;
-    }
-    /* Primary Telegram Conversion Card */
-    .cta-card {
-      background: linear-gradient(180deg, var(--surface-elevated) 0%, var(--surface) 100%);
-      border: 1px solid rgba(0, 168, 255, 0.28);
-      border-radius: 16px;
-      padding: 24px 20px;
-      text-align: center;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
-      margin-bottom: 35px;
-    }
-    .cta-card h2 {
-      font-size: 1.35rem;
-      margin-bottom: 8px;
-      color: #FFFFFF;
-    }
-    .cta-card p {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-    .btn-action {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      max-width: 440px;
-      padding: 16px 24px;
-      background: linear-gradient(135deg, var(--cyan), var(--blue));
-      color: #FFFFFF;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 1.1rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 168, 255, 0.35);
-      transition: all 0.2s ease;
-      cursor: pointer;
-      border: none;
-    }
-    .btn-action:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0, 168, 255, 0.5);
-    }
-    /* Interactive Sensitivity Calculator Widget */
-    .tool-container {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      margin-bottom: 35px;
-    }
-    .tool-header {
-      border-left: 4px solid var(--cyan);
-      padding-left: 12px;
-      margin-bottom: 18px;
-    }
-    .tool-header h2 {
-      font-size: 1.35rem;
-      color: #FFFFFF;
-    }
-    .tool-header p {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-    .device-selector {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-bottom: 22px;
-    }
-    .btn-ram {
-      background: var(--surface-elevated);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 10px 6px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .btn-ram.active, .btn-ram:hover {
-      border-color: var(--cyan);
-      background: rgba(0, 168, 255, 0.15);
-      color: var(--cyan);
-    }
-    .calc-results {
-      background: #070B12;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 14px;
-      text-align: center;
-    }
-    .calc-item {
-      background: var(--surface);
-      padding: 12px 8px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .calc-label {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 4px;
-      text-transform: uppercase;
-    }
-    .calc-val {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--cyan);
-    }
-    /* Calibration Table */
-    .table-container {
-      overflow-x: auto;
-      margin-top: 18px;
-      margin-bottom: 10px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      text-align: left;
-    }
-    th, td {
-      padding: 12px 14px;
-      border-bottom: 1px solid var(--border);
-    }
-    th {
-      background: var(--surface-elevated);
-      color: var(--cyan);
-      font-weight: 600;
-    }
-    /* Long-Form Technical Guide */
-    .article-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px 24px;
-      margin-bottom: 35px;
-    }
-    .article-box h2 {
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-      color: #FFFFFF;
-      border-left: 4px solid var(--cyan);
-      padding-left: 12px;
-    }
-    .article-box h3 {
-      font-size: 1.2rem;
-      margin: 22px 0 8px;
-      color: #E2E8F0;
-    }
-    .article-box p {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-    .article-box ul, .article-box ol {
-      margin: 10px 0 16px 22px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-    .article-box li {
-      margin-bottom: 8px;
-    }
-    .code-pill {
-      background: var(--surface-elevated);
-      color: var(--cyan);
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-family: monospace;
-      font-size: 0.88rem;
-    }
-    /* FAQ Section */
-    .faq-block {
-      border-bottom: 1px solid var(--border);
-      padding: 16px 0;
-    }
-    .faq-block:last-child {
-      border-bottom: none;
-    }
-    .faq-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #FFFFFF;
-      margin-bottom: 6px;
-    }
-    .faq-desc {
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-    /* Sticky Mobile Conversion Bar */
-    .mobile-sticky {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(11, 16, 24, 0.95);
-      backdrop-filter: blur(12px);
-      border-top: 1px solid var(--border);
-      padding: 12px 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 9999;
-    }
-    .mobile-sticky span {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #FFFFFF;
-    }
-    .btn-sticky {
-      background: var(--cyan);
-      color: #05070B;
-      padding: 8px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.85rem;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--muted);
-      padding: 20px 0 40px;
-    }
-    footer a {
-      color: var(--cyan);
-      text-decoration: none;
-    }
-    @media (max-width: 500px) {
-      .device-selector {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <!-- AES Decryption Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 <body>
 
-  <div class="top-banner">
-    ⚡ Free Fire Sensitivity Calibrator & 60 FPS Engine Guides Live
+  <!-- Audio Gate Overlay (iPhone & Android 16 Compatible) -->
+  <div id="audio-gate-overlay" onclick="unlockAudioAndStartWebsite()">
+    <div class="gate-card">
+      <div class="gate-badge">LIVE TERMINAL</div>
+      <h2>Welcome to My World</h2>
+      <p>"Silence Builds Legends."</p>
+      <button type="button" class="gate-btn">Tap Anywhere to Begin ⚡</button>
+      <span class="gate-hint">[Single tap initiates audio & terminal view]</span>
+    </div>
   </div>
 
-  <div class="wrapper">
+  <!-- Audio Engine (35% Volume) -->
+  <audio id="bg-audio" src="bg-music.mp3" loop preload="auto"></audio>
 
-    <header>
-      <div class="badge">NUCX Engine Hub</div>
-      <h1>NUCX.QZZ.IO</h1>
-      <p>Free Fire Device Optimization, Real-Time Sensitivity Calculator, Lag Reduction Guides & Verified Resource Channel.</p>
-    </header>
+  <!-- Ambient Cyber Flame Canvas -->
+  <canvas id="flame-canvas"></canvas>
 
-    <!-- Interactive Sensitivity Calculator: Retention Hook -->
-    <section class="tool-container">
-      <div class="tool-header">
-        <h2>⚡ Free Fire Sensitivity Calibrator</h2>
-        <p>Apna device RAM select karein aur calibrated headshot sensitivity check karein:</p>
+  <div class="app-container">
+
+    <!-- Public Front Profile -->
+    <main id="public-view" class="active-view">
+      <div class="profile-card">
+        
+        <!-- Double-Tap Avatar Container -->
+        <div class="avatar-wrapper" id="profile-trigger" title="Double tap for restricted portal">
+          <img src="profile.jpg" alt="Aayu Verma" class="avatar-img" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Aayu'">
+          <div class="avatar-pulse"></div>
+        </div>
+
+        <div class="status-indicator">
+          <span class="status-dot"></span>
+          <span>Building Vzixo &bull; Market Operator</span>
+        </div>
+
+        <h1 class="user-title">Aayu Verma</h1>
+        <p class="user-sub">VEV &bull; Vishal Verma</p>
+        <p class="user-motto">“Silence Builds Legends.”</p>
+
+        <!-- Cliffhanger Story Teaser (Curiosity Hook) -->
+        <div class="story-teaser-card">
+          <div class="teaser-tag">THE UNTOLD CHRONICLE</div>
+          <h3>17 Ki Umar, Faridabad Aur ₹35,000 Ka Sabak</h3>
+          <p>
+            "Log aksar jeet ki baatein karte hain, par asli foundation tab banti hai jab jeb me aakhri rupaya bacha ho aur ghar se mummy ka call aaye... Wo ek safar jisne mujhe badal kar rakh diya."
+          </p>
+          <div class="teaser-lock-hint">
+            <span>🔒 Full story locked in Private Archive &bull; Double-tap avatar above</span>
+          </div>
+        </div>
+
+        <!-- Professional Disciplines -->
+        <div class="focus-grid">
+          <div class="focus-item">
+            <h4>📈 Financial Markets</h4>
+            <p>Smart Money Concepts (SMC), Liquidity Sweeps, ICT, Volume dynamics, aur Reversal setups targeting 2027 consistency.</p>
+          </div>
+          <div class="focus-item">
+            <h4>🏢 Vzixo Private Limited</h4>
+            <p>Long-term entrepreneurial vision: E-commerce ecosystems, Hospitality, and Commercial scalable ventures.</p>
+          </div>
+          <div class="focus-item">
+            <h4>⚡ Proprietary Engines</h4>
+            <p>Architecture concepts behind AG PRO Institutional Reversal Engine & NEXUS BOS Engine.</p>
+          </div>
+          <div class="focus-item">
+            <h4>🏎️ Passions & Styling</h4>
+            <p>BMW, Audi, Jawa 42 Bobber, ASUS technology, premium black styling, psychology & human dynamics.</p>
+          </div>
+        </div>
+
+        <!-- Contact Links -->
+        <div class="social-links">
+          <a href="tel:9335085991" class="social-btn">
+            <span>📞 Direct: +91 9335085991</span>
+            <span class="arrow">➔</span>
+          </a>
+          <a href="mailto:support@nucx.qzz.io" class="social-btn">
+            <span>✉️ support@nucx.qzz.io</span>
+            <span class="arrow">➔</span>
+          </a>
+          <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="social-btn">
+            <span>✈️ Telegram Channel</span>
+            <span class="arrow">➔</span>
+          </a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="social-btn">
+            <span>📸 Instagram</span>
+            <span class="arrow">➔</span>
+          </a>
+        </div>
+
+        <div class="public-footer-hint">
+          <span>VEV — Legacy Begins &bull; 2026</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Hidden Identity Verification Modal -->
+    <div id="auth-modal" class="modal-overlay">
+      <div class="modal-card">
+        <button type="button" class="modal-close-btn" onclick="closeAuthModal()">&times;</button>
+        <div class="modal-header">
+          <div class="modal-badge">RESTRICTED ACCESS</div>
+          <h3>Enter Identity & Passphrase</h3>
+          <p>Please declare details to request access to the Private Diary.</p>
+        </div>
+
+        <form id="access-form" onsubmit="handleAccessRequest(event)">
+          <div class="input-group">
+            <label for="visitor-name">Apna Naam</label>
+            <input type="text" id="visitor-name" placeholder="Aapka pura naam" required autocomplete="off">
+          </div>
+
+          <div class="input-group">
+            <label for="visitor-phone">Phone Number</label>
+            <input type="tel" id="visitor-phone" placeholder="Contact number" required autocomplete="off">
+          </div>
+
+          <div class="input-group">
+            <label for="visitor-relation">Aap mere kaun hain?</label>
+            <input type="text" id="visitor-relation" placeholder="Friend / Family / Colleague / Unknown" required autocomplete="off">
+          </div>
+
+          <div class="input-group">
+            <label for="vault-password">Passphrase</label>
+            <input type="password" id="vault-password" placeholder="••••••••••••" required autocomplete="off">
+          </div>
+
+          <div id="auth-feedback" class="feedback-text"></div>
+
+          <button type="submit" class="submit-btn" id="submit-auth-btn">
+            Verify & Unlock Memoir
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Private 3D Book / Diary Workspace -->
+    <section id="diary-view" class="hidden-view">
+      <div class="diary-top-bar">
+        <button type="button" class="exit-btn" onclick="lockAndExitDiary()">← Back to Profile</button>
+        <div class="narration-toggle">
+          <label for="voice-toggle">Voice Readout 🎙️</label>
+          <input type="checkbox" id="voice-toggle" checked onchange="toggleNarrationState()">
+        </div>
       </div>
 
-      <div class="device-selector">
-        <button class="btn-ram active" onclick="setSensitivity('2GB', 100, 98, 92, 88, 50)">2GB RAM</button>
-        <button class="btn-ram" onclick="setSensitivity('3GB', 98, 94, 88, 84, 52)">3GB RAM</button>
-        <button class="btn-ram" onclick="setSensitivity('4GB', 95, 90, 85, 80, 55)">4GB RAM</button>
-        <button class="btn-ram" onclick="setSensitivity('6GB+', 92, 85, 78, 72, 60)">6GB+ RAM</button>
+      <!-- Cyber Realistic 3D Book Scene -->
+      <div class="book-scene">
+        <div class="book-container" id="book-element">
+          <!-- Left Page -->
+          <div class="book-page left-page" id="page-left">
+            <div class="page-header">
+              <span class="journal-tag">VEV ARCHIVE</span>
+              <span class="page-num" id="left-page-num">#01</span>
+            </div>
+            <div class="page-content">
+              <h2 id="left-page-title">Loading Chapter...</h2>
+              <div class="prose-content" id="left-page-text"></div>
+            </div>
+          </div>
+
+          <!-- Right Flippable Page -->
+          <div class="book-page right-page" id="page-right">
+            <div class="page-header">
+              <span class="journal-tag">RAW MEMOIR</span>
+              <span class="page-num" id="right-page-num">#02</span>
+            </div>
+            <div class="page-content">
+              <h2 id="right-page-title">Loading Chapter...</h2>
+              <div class="prose-content" id="right-page-text"></div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="calc-results">
-        <div class="calc-item">
-          <div class="calc-label">General</div>
-          <div class="calc-val" id="val-gen">100</div>
-        </div>
-        <div class="calc-item">
-          <div class="calc-label">Red Dot</div>
-          <div class="calc-val" id="val-red">98</div>
-        </div>
-        <div class="calc-item">
-          <div class="calc-label">2X Scope</div>
-          <div class="calc-val" id="val-2x">92</div>
-        </div>
-        <div class="calc-item">
-          <div class="calc-label">4X Scope</div>
-          <div class="calc-val" id="val-4x">88</div>
-        </div>
-        <div class="calc-item">
-          <div class="calc-label">Sniper Scope</div>
-          <div class="calc-val" id="val-sniper">50</div>
-        </div>
+      <!-- Book Navigation Controls -->
+      <div class="book-controls">
+        <button type="button" class="nav-page-btn" id="prev-page-btn" onclick="previousPageTurn()">&#8592; Previous</button>
+        <span class="page-status" id="book-page-indicator">Chapter 1 / --</span>
+        <button type="button" class="nav-page-btn" id="next-page-btn" onclick="nextPageTurn()">Next &#8594;</button>
       </div>
-      <p style="font-size: 0.8rem; color: var(--muted); margin-top: 12px; text-align: center;">
-        *Note: Low-end devices me touch response slow hone ki wajah se General 98-100 par best drag provide karta hai.
-      </p>
     </section>
-
-    <!-- Main Telegram Conversion Box -->
-    <section class="cta-card">
-      <h2>🚀 Official Telegram Resource Channel</h2>
-      <p>
-        Daily low-render display configs, 60 FPS lock guides, ping stabilization files aur exclusive community updates direct hamare official channel par share kiye jate hain.
-      </p>
-      <a href="https://t.me/nucxqzzhack" target="_blank" rel="noopener noreferrer" class="btn-action">
-        JOIN TELEGRAM CHANNEL ➔
-      </a>
-      <div style="margin-top: 14px; font-size: 0.85rem; color: var(--muted);">
-        Official Handle: <span style="color: var(--cyan); font-weight: 600;">@nucxqzzhack</span>
-      </div>
-    </section>
-
-    <!-- Technical Guide: High Search Engine Ranking Factor -->
-    <article class="article-box">
-      <h2>Complete Free Fire Optimization & Lag Fix Guide</h2>
-      <p>
-        Budget Android devices par frame drops, sudden stutters aur high ping hardware limits aur improper system configurations ki wajah se aate hain. Yahan verified technical steps diye gaye hain jo aapke device ko bina kisi unauthorized client modding ke optimize karenge.
-      </p>
-
-      <h3>1. Developer Options Tweaks (System Level)</h3>
-      <p>Apne Android Settings > About Phone me jakar 'Build Number' par 7 baar tap karke Developer Options enable karein:</p>
-      <ul>
-        <li><strong>Background Process Limit:</strong> Isko <span class="code-pill">At most 2 processes</span> par set karein taaki background apps match ke beech CPU power consume na karein.</li>
-        <li><strong>Window / Transition Animation Scale:</strong> Inhe <span class="code-pill">0.5x</span> ya <span class="code-pill">Off</span> par set karein taaki phone UI fast respond kare.</li>
-        <li><strong>Force 4x MSAA:</strong> Low-end devices (2GB-4GB) par isko <span class="code-pill">Disabled</span> hi rakhein, isse GPU overheating aur thermal throttling se bachta hai.</li>
-      </ul>
-
-      <h3>2. Display & Frame Rate Synchronization</h3>
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Device RAM</th>
-              <th>Graphics Setting</th>
-              <th>High FPS Mode</th>
-              <th>Shadows</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>2GB RAM</td>
-              <td>Smooth</td>
-              <td>Normal</td>
-              <td>Off</td>
-            </tr>
-            <tr>
-              <td>3GB RAM</td>
-              <td>Smooth</td>
-              <td>High</td>
-              <td>Off</td>
-            </tr>
-            <tr>
-              <td>4GB RAM</td>
-              <td>Standard / Smooth</td>
-              <td>High</td>
-              <td>Off</td>
-            </tr>
-            <tr>
-              <td>6GB+ RAM</td>
-              <td>Ultra</td>
-              <td>High</td>
-              <td>On</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3>3. Ping 999+ Aur Packet Loss Stabilization</h3>
-      <p>
-        Jab ISP routing traffic ko lambe path se bhejti hai, tab match me delay hota hai. Isko stable karne ke liye:
-      </p>
-      <ol>
-        <li>Phone Settings > Network & Internet > <strong>Private DNS</strong> me jayein.</li>
-        <li>Private DNS provider hostname select karein aur enter karein: <span class="code-pill">dns.google</span> ya <span class="code-pill">1dot1dot1dot1.cloudflare-dns.com</span></li>
-        <li>Isse match ke beech me aane wale unannounced ping spikes drastically control hote hain.</li>
-      </ol>
-    </article>
-
-    <!-- FAQ Rich Snippets -->
-    <section class="article-box">
-      <h2>Frequently Asked Questions</h2>
-      
-      <div class="faq-block">
-        <div class="faq-title">Q1: NUCX par share kiye gaye guides safe hain?</div>
-        <div class="faq-desc">
-          Haan, sabhi guides operating system optimization, DNS configuration aur in-game display calibration par based hain. Hum kisi bhi tarah ke unauthorized client modification ya anti-cheat violation tools ko support nahi karte.
-        </div>
-      </div>
-
-      <div class="faq-block">
-        <div class="faq-title">Q2: Files aur updates download karne ka direct tareeqa kya hai?</div>
-        <div class="faq-desc">
-          Direct downloads ke liye hamara official Telegram channel <strong>@nucxqzzhack</strong> join karein. Wahan sabhi verified files direct pinned milti hain bina kisi survey bypass ke.
-        </div>
-      </div>
-
-      <div class="faq-block">
-        <div class="faq-title">Q3: Kya sensitivity change karne se headshot rate badhta hai?</div>
-        <div class="faq-desc">
-          Haan, sahi General aur Red Dot settings drag response ko smooth banati hain, jisse crosshair natural head level par lock hota hai.
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p>Support / Enquiries: <a href="mailto:support@nucx.qzz.io">support@nucx.qzz.io</a></p>
-      <p style="margin-top: 6px;">Telegram Community: <a href="https://t.me/nucxqzzhack">@nucxqzzhack</a></p>
-      <p style="margin-top: 12px; color: #4B5563;">
-        Disclaimer: NUCX.QZZ.IO is an educational community providing device performance optimization guides. We are not affiliated with or endorsed by Garena Free Fire.
-      </p>
-    </footer>
 
   </div>
 
-  <!-- Sticky Conversion Bar for Mobile -->
-  <div class="mobile-sticky">
-    <span>🔥 Daily Optimization Drops</span>
-    <a href="https://t.me/nucxqzzhack" target="_blank" rel="noopener noreferrer" class="btn-sticky">Join Telegram</a>
-  </div>
-
-  <!-- JavaScript for Interactive Sensitivity Tool -->
-  <script>
-    function setSensitivity(ram, gen, red, sc2, sc4, sniper) {
-      document.getElementById('val-gen').innerText = gen;
-      document.getElementById('val-red').innerText = red;
-      document.getElementById('val-2x').innerText = sc2;
-      document.getElementById('val-4x').innerText = sc4;
-      document.getElementById('val-sniper').innerText = sniper;
-
-      const buttons = document.querySelectorAll('.btn-ram');
-      buttons.forEach(btn => {
-        if (btn.innerText.includes(ram)) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
-      });
-    }
-  </script>
-
+  <script src="life_memory.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
