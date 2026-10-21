@@ -1,24 +1,25 @@
 /* ==========================================================================
-   AAYU VERMA (VEV) — RUNTIME CONTROLLER ENGINE
-   Features: Safari/Android 16 Audio Gate, Secret Trigger, Telegram Alerts,
-             AES-256 Decryption, 3D Page Turn & Ambient Canvas Flame
+   AAYU VERMA (VEV) — RUNTIME CONTROLLER
+   Features: Direct Passphrase Check, Telegram Alert, iOS/Android 16 Audio Gate,
+             3D Soft Page Turn, Web Speech Narration & Cyber Flames
    ========================================================================== */
 
-// --- TELEGRAM & SYSTEM CREDENTIALS ---
 const TELEGRAM_CONFIG = {
   botToken: "8824363400:AAHQx_YGzWmAHx9dzRnICo2wUCnQoTvwFQs",
   chatId: "8870818890"
 };
 
-// --- APP RUNTIME STATE ---
-let decryptedChapters = [];
+const MASTER_PASSPHRASE = "OnlineBank@9988Vv";
+
+// State
+let loadedChapters = [];
 let currentSpreadIndex = 0;
 let isNarrating = true;
 let speechSynth = window.speechSynthesis;
 let currentUtterance = null;
 
 // ==========================================================================
-// 1. MASTER AUDIO GATE (iPhone iOS & Android 16 Autoplay Fix)
+// 1. MASTER AUDIO GATE (iOS & Android 16 Autoplay Fix)
 // ==========================================================================
 function unlockAudioAndStartWebsite() {
   const audio = document.getElementById("bg-audio");
@@ -53,7 +54,7 @@ const avatarWrapper = document.getElementById("profile-trigger");
 let lastTapTime = 0;
 
 if (avatarWrapper) {
-  // Mobile touch support
+  // Mobile double-tap
   avatarWrapper.addEventListener("touchend", function (e) {
     const currentTime = new Date().getTime();
     const tapLength = currentTime - lastTapTime;
@@ -84,7 +85,7 @@ function closeAuthModal() {
 }
 
 // ==========================================================================
-// 3. TELEGRAM VISITOR DISPATCH & DECRYPTION FLOW
+// 3. TELEGRAM ALERT & DIRECT PASSPHRASE VERIFICATION
 // ==========================================================================
 async function handleAccessRequest(event) {
   event.preventDefault();
@@ -92,14 +93,14 @@ async function handleAccessRequest(event) {
   const name = document.getElementById("visitor-name").value.trim();
   const phone = document.getElementById("visitor-phone").value.trim();
   const relation = document.getElementById("visitor-relation").value.trim();
-  const passphrase = document.getElementById("vault-password").value;
+  const passphrase = document.getElementById("vault-password").value.trim();
   const feedback = document.getElementById("auth-feedback");
   const submitBtn = document.getElementById("submit-auth-btn");
 
   submitBtn.disabled = true;
-  submitBtn.innerText = "Verifying Credentials...";
+  submitBtn.innerText = "Verifying...";
 
-  // Construct silent notification for Telegram
+  // Construct silent alert for Telegram
   const alertText = 
     `🚨 *PRIVATE GATE ACCESS ATTEMPT*\n\n` +
     `👤 *Name:* ${name}\n` +
@@ -108,29 +109,30 @@ async function handleAccessRequest(event) {
     `🔑 *Passphrase Entered:* \`${passphrase}\`\n` +
     `⏰ *Time:* ${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}`;
 
-  // Dispatch to Telegram Bot silently
+  // Dispatch silent Telegram alert
   sendTelegramAlert(alertText);
 
-  // Attempt Decryption using the entered passphrase
+  // Direct Passphrase Check
   setTimeout(() => {
-    try {
-      const decryptedData = decryptMemoryPayload(passphrase);
-
-      if (decryptedData && Array.isArray(decryptedData) && decryptedData.length > 0) {
-        decryptedChapters = decryptedData;
+    if (passphrase === MASTER_PASSPHRASE) {
+      if (typeof DIARY_CHAPTERS !== "undefined" && Array.isArray(DIARY_CHAPTERS)) {
+        loadedChapters = DIARY_CHAPTERS;
         currentSpreadIndex = 0;
         closeAuthModal();
         openDiaryView();
       } else {
-        throw new Error("Decryption payload mismatch");
+        feedback.className = "feedback-text error";
+        feedback.innerText = "Error: life_memory.js not loaded.";
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Verify & Unlock Memoir";
       }
-    } catch (err) {
+    } else {
       feedback.className = "feedback-text error";
       feedback.innerText = "Access Denied: Invalid Passphrase.";
       submitBtn.disabled = false;
       submitBtn.innerText = "Verify & Unlock Memoir";
     }
-  }, 600);
+  }, 400);
 }
 
 function sendTelegramAlert(text) {
@@ -144,24 +146,12 @@ function sendTelegramAlert(text) {
       parse_mode: "Markdown"
     })
   }).catch((err) => {
-    console.warn("Telemetry alert failed:", err);
+    console.warn("Telegram dispatch failed:", err);
   });
 }
 
-// AES-256 Decrypt Routine
-function decryptMemoryPayload(passphrase) {
-  if (typeof ENCRYPTED_LIFE_PAYLOAD === "undefined") {
-    console.error("Missing life_memory.js payload");
-    return null;
-  }
-  const bytes = CryptoJS.AES.decrypt(ENCRYPTED_LIFE_PAYLOAD, passphrase);
-  const decryptedString = bytes.toString(CryptoJS.enc.Utf8);
-  if (!decryptedString) return null;
-  return JSON.parse(decryptedString);
-}
-
 // ==========================================================================
-// 4. DIARY VIEW CONTROLLER & SOFT PAGE-FLIP
+// 4. DIARY VIEW CONTROLLER & PAGE TURNING
 // ==========================================================================
 function openDiaryView() {
   document.getElementById("public-view").classList.remove("active-view");
@@ -190,10 +180,10 @@ function lockAndExitDiary() {
 }
 
 function renderSpread() {
-  if (!decryptedChapters.length) return;
+  if (!loadedChapters.length) return;
 
-  const leftItem = decryptedChapters[currentSpreadIndex];
-  const rightItem = decryptedChapters[currentSpreadIndex + 1];
+  const leftItem = loadedChapters[currentSpreadIndex];
+  const rightItem = loadedChapters[currentSpreadIndex + 1];
 
   // Render Left Page
   document.getElementById("left-page-num").innerText = `#0${currentSpreadIndex + 1}`;
@@ -205,18 +195,18 @@ function renderSpread() {
   document.getElementById("right-page-title").innerText = rightItem ? rightItem.title : "End of Log";
   document.getElementById("right-page-text").innerHTML = rightItem 
     ? rightItem.content 
-    : "<p style='color:var(--text-muted); font-style:italic;'>Silence Builds Legends. More chapters writing in progress...</p>";
+    : "<p style='color:var(--text-muted); font-style:italic;'>Silence Builds Legends. More chapters being written...</p>";
 
-  // Status Indicator
-  const total = decryptedChapters.length;
+  // Indicator
+  const total = loadedChapters.length;
   document.getElementById("book-page-indicator").innerText = `Chapter ${currentSpreadIndex + 1}-${Math.min(currentSpreadIndex + 2, total)} / ${total}`;
 
-  // Voice Narration trigger
+  // Read current spread
   narrateCurrentPages(leftItem, rightItem);
 }
 
 function nextPageTurn() {
-  if (currentSpreadIndex + 2 < decryptedChapters.length) {
+  if (currentSpreadIndex + 2 < loadedChapters.length) {
     const rightPage = document.getElementById("page-right");
     rightPage.classList.add("turning");
 
@@ -243,8 +233,8 @@ function toggleNarrationState() {
   if (!isNarrating) {
     stopNarration();
   } else {
-    const leftItem = decryptedChapters[currentSpreadIndex];
-    const rightItem = decryptedChapters[currentSpreadIndex + 1];
+    const leftItem = loadedChapters[currentSpreadIndex];
+    const rightItem = loadedChapters[currentSpreadIndex + 1];
     narrateCurrentPages(leftItem, rightItem);
   }
 }
@@ -265,7 +255,7 @@ function narrateCurrentPages(left, right) {
 
   if (textToSpeak.trim().length > 0) {
     currentUtterance = new SpeechSynthesisUtterance(textToSpeak);
-    currentUtterance.rate = 0.95; // Calm pace
+    currentUtterance.rate = 0.95;
     currentUtterance.pitch = 1.0;
     speechSynth.speak(currentUtterance);
   }
@@ -278,7 +268,7 @@ function stripHtml(html) {
 }
 
 // ==========================================================================
-// 6. AMBIENT CYBER FLAME CANVAS BACKGROUND
+// 6. AMBIENT CYBER FLAME CANVAS
 // ==========================================================================
 const canvas = document.getElementById("flame-canvas");
 const ctx = canvas ? canvas.getContext("2d") : null;
@@ -338,4 +328,3 @@ if (canvas && ctx) {
   }
   animateFlame();
 }
-  
