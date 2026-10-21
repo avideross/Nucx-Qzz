@@ -3,195 +3,292 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aayu Verma (VEV) | Silence Builds Legends</title>
+  <title>Aayu Verma — Silence Builds Legends</title>
   
-  <meta name="description" content="Official personal portal of Aayu Verma (VEV). Financial operator, founder of Vzixo, and builder of algorithmic execution systems.">
-  <meta name="theme-color" content="#030508">
+  <meta name="description" content="Personal portal of Aayu Verma (VEV / Vishal Verma). Entrepreneur, Financial Markets Operator, and Founder of Vzixo.">
+  <meta name="theme-color" content="#0a0a0c">
+
+  <!-- Google Fonts: Inter + Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="luxury-dark">
 
-  <!-- Audio Gate Overlay (Safari iOS & Android 16 Autoplay Bypass) -->
+  <!-- Minimal Audio Gate (iOS & Android 16 Touch Barrier) -->
   <div id="audio-gate-overlay" onclick="unlockAudioAndStartWebsite()">
-    <div class="gate-card">
-      <div class="gate-badge">LIVE TERMINAL</div>
-      <h2>Welcome to My World</h2>
-      <p>"Silence Builds Legends."</p>
-      <button type="button" class="gate-btn">Tap Anywhere to Begin ⚡</button>
-      <span class="gate-hint">[Screen par kahi bhi ek baar tap karein]</span>
+    <div class="editorial-gate-card">
+      <span class="gate-mono-tag">AAYU VERMA &bull; PORTAL 2026</span>
+      <h2>Enter Private Space</h2>
+      <p class="gate-subtext">“Silence Builds Legends.”</p>
+      <button type="button" class="editorial-btn">Tap to Enter &bull; Start Ambient Sound</button>
+      <span class="gate-hint">Direct interaction unlocks background audio seamlessly</span>
     </div>
   </div>
 
-  <!-- Audio Engine (Runs at 35% Volume) -->
+  <!-- Audio Node (35% Volume) -->
   <audio id="bg-audio" src="bg-music.mp3" loop preload="auto"></audio>
 
-  <!-- Ambient Cyber Flame Canvas -->
-  <canvas id="flame-canvas"></canvas>
+  <!-- Main Viewport Wrap -->
+  <div class="site-wrapper">
 
-  <div class="app-container">
-
-    <!-- Public Front Profile -->
-    <main id="public-view" class="active-view">
-      <div class="profile-card">
-        
-        <!-- Double-Tap Avatar Container -->
-        <div class="avatar-wrapper" id="profile-trigger" title="Double tap for restricted portal">
-          <img src="profile.jpg" alt="Aayu Verma" class="avatar-img" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Aayu'">
-          <div class="avatar-pulse"></div>
-        </div>
-
-        <div class="status-indicator">
-          <span class="status-dot"></span>
-          <span>Building Vzixo &bull; Market Operator</span>
-        </div>
-
-        <h1 class="user-title">Aayu Verma</h1>
-        <p class="user-sub">VEV &bull; Vishal Verma</p>
-        <p class="user-motto">“Silence Builds Legends.”</p>
-
-        <!-- Cliffhanger Teaser Box -->
-        <div class="story-teaser-card">
-          <div class="teaser-tag">THE UNTOLD CHRONICLE</div>
-          <h3>17 Ki Umar, Faridabad Aur ₹35,000 Ka Sabak</h3>
-          <p>
-            "Log aksar jeet ki baatein karte hain, par asli foundation tab banti hai jab jeb me aakhri rupaya bacha ho aur ghar se mummy ka call aaye... Wo ek safar jisne mujhe badal kar rakh diya."
-          </p>
-          <div class="teaser-lock-hint">
-            <span>🔒 Full story locked in Private Archive &bull; Double-tap avatar above</span>
-          </div>
-        </div>
-
-        <!-- Professional Disciplines -->
-        <div class="focus-grid">
-          <div class="focus-item">
-            <h4>📈 Financial Markets</h4>
-            <p>Smart Money Concepts (SMC), Liquidity Sweeps, ICT, Volume dynamics, aur Reversal setups targeting 2027 consistency.</p>
-          </div>
-          <div class="focus-item">
-            <h4>🏢 Vzixo Private Limited</h4>
-            <p>Long-term entrepreneurial vision: E-commerce ecosystems, Hospitality, and Commercial scalable ventures.</p>
-          </div>
-          <div class="focus-item">
-            <h4>⚡ Proprietary Engines</h4>
-            <p>Architecture concepts behind AG PRO Institutional Reversal Engine & NEXUS BOS Engine.</p>
-          </div>
-          <div class="focus-item">
-            <h4>🏎️ Passions & Styling</h4>
-            <p>BMW, Audi, Jawa 42 Bobber, ASUS technology, premium black styling, psychology & human dynamics.</p>
-          </div>
-        </div>
-
-        <!-- Contact Links -->
-        <div class="social-links">
-          <a href="tel:9335085991" class="social-btn">
-            <span>📞 Direct: +91 9335085991</span>
-            <span class="arrow">➔</span>
-          </a>
-          <a href="mailto:support@nucx.qzz.io" class="social-btn">
-            <span>✉️ support@nucx.qzz.io</span>
-            <span class="arrow">➔</span>
-          </a>
-          <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="social-btn">
-            <span>✈️ Telegram Channel</span>
-            <span class="arrow">➔</span>
-          </a>
-          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="social-btn">
-            <span>📸 Instagram</span>
-            <span class="arrow">➔</span>
-          </a>
-        </div>
-
-        <div class="public-footer-hint">
-          <span>VEV — Legacy Begins &bull; 2026</span>
-        </div>
+    <!-- Sticky Editorial Navigation -->
+    <header class="editorial-header">
+      <div class="header-brand">AAYU VERMA</div>
+      <div class="header-status">
+        <span class="live-dot"></span> BUILDING VZIXO
       </div>
+      <button class="nav-archive-trigger" onclick="openAuthModal()">Request Vault Access</button>
+    </header>
+
+    <main id="public-view" class="view-active">
+      
+      <!-- 1. Hero Section -->
+      <section class="hero-section">
+        <div class="hero-label-wrap">
+          <span class="pill-label">BUILDING VZIXO &bull; FINANCIAL MARKETS</span>
+        </div>
+
+        <div class="hero-core-grid">
+          <div class="hero-text-block">
+            <h1 class="hero-title">AAYU VERMA</h1>
+            <p class="hero-alias">VEV VERMA &bull; VISHAL VERMA</p>
+            <p class="hero-tagline">“Silence Builds Legends.”</p>
+            <p class="hero-narrative">
+              Focused on building long-term equity through strategic market execution, automated algorithmic architectures, and disciplined enterprise development.
+            </p>
+          </div>
+
+          <!-- Avatar with Double-Tap Trigger & Accessible Fallback -->
+          <div class="hero-media-block">
+            <div class="avatar-frame" id="profile-trigger" title="Double tap to open restricted access">
+              <img src="profile.jpg" alt="Aayu Verma" class="avatar-photo" onerror="this.src='https://api.dicebear.com/7.x/initials/svg?seed=AV&backgroundColor=121316&textColor=ffffff'">
+              <div class="avatar-overlay-hint">Double Tap for Vault</div>
+            </div>
+            <button type="button" class="mobile-vault-btn" onclick="openAuthModal()">
+              <span>🔒 Open Private Archive</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-scroll-cue">
+          <span>EXPLORE MY WORLD</span>
+          <div class="scroll-line"></div>
+        </div>
+      </section>
+
+      <!-- 2. The Untold Chronicle (Curiosity Hook) -->
+      <section class="section-block chronicle-block">
+        <div class="section-header">
+          <span class="section-idx">01</span>
+          <span class="section-badge">THE UNTOLD CHRONICLE</span>
+        </div>
+        <div class="chronicle-card">
+          <h2 class="chronicle-title">17 Ki Umar, Faridabad Aur ₹35,000 Ka Sabak</h2>
+          <p class="chronicle-excerpt">
+            Log aksar jeet ki baatein karte hain, par asli foundation tab banti hai jab jeb me aakhri rupaya bacha ho aur ghar se mummy ka call aaye... Wo ek daur jisne mujhe seekh di jo koi book nahi sikha sakti.
+          </p>
+          <div class="chronicle-footer">
+            <span class="chronicle-note">Private memoirs, raw timelines, and lesson logs are stored in the Restricted Archive.</span>
+            <button type="button" class="editorial-outline-btn" onclick="openAuthModal()">Unlock Chronicle &rarr;</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Professional Work -->
+      <section class="section-block">
+        <div class="section-header">
+          <span class="section-idx">02</span>
+          <span class="section-badge">PROFESSIONAL WORK</span>
+        </div>
+
+        <div class="cards-grid">
+          <!-- Card 1 -->
+          <div class="editorial-card">
+            <div class="card-meta">DISCIPLINE 01</div>
+            <h3>Financial Markets</h3>
+            <p class="card-desc">
+              Precision execution in Forex and digital assets. Core frameworks revolve around ICT Smart Money Concepts (SMC), Volume Profile, liquidity sweeps, structural breaks (BOS), and strict drawdown control targeting high-probability risk-to-reward setups.
+            </p>
+            <div class="card-tags">
+              <span>Smart Money</span>
+              <span>Price Action</span>
+              <span>Liquidity Dynamics</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="editorial-card">
+            <div class="card-meta">DISCIPLINE 02</div>
+            <h3>Vzixo Private Limited</h3>
+            <p class="card-desc">
+              Long-term enterprise vision aimed at multi-sector scalability. Structured around building sustainable operational foundations across digital commerce, hospitality, commercial ventures, and subsequent global market expansion.
+            </p>
+            <div class="card-tags">
+              <span>E-Commerce</span>
+              <span>Hospitality</span>
+              <span>Strategic Capital</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="editorial-card">
+            <div class="card-meta">DISCIPLINE 03</div>
+            <h3>Proprietary Engines</h3>
+            <p class="card-desc">
+              Development and backtesting of automated execution models, institutional order block validation algorithms, and indicator frameworks including the AG PRO Institutional Reversal Engine and NEXUS BOS Engine.
+            </p>
+            <div class="card-tags">
+              <span>AG PRO</span>
+              <span>NEXUS BOS</span>
+              <span>Execution Logic</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Passions & Lifestyle -->
+      <section class="section-block">
+        <div class="section-header">
+          <span class="section-idx">03</span>
+          <span class="section-badge">PASSIONS & LIFESTYLE</span>
+        </div>
+
+        <div class="lifestyle-grid">
+          <div class="lifestyle-card">
+            <h4>Automotive Engineering</h4>
+            <p>Appreciation for German engineering (BMW & Audi) and distinctive road aesthetics (Jawa 42 Bobber & BMW Motorrad).</p>
+          </div>
+          <div class="lifestyle-card">
+            <h4>Computing & Setup</h4>
+            <p>High-performance ASUS computing environments, customized terminal interfaces, and automated scripting workflows.</p>
+          </div>
+          <div class="lifestyle-card">
+            <h4>Human Dynamics</h4>
+            <p>Study of behavioral psychology, high-stakes negotiation, emotional self-regulation, and decision-making under pressure.</p>
+          </div>
+          <div class="lifestyle-card">
+            <h4>Aesthetic & Discipline</h4>
+            <p>Physical conditioning, minimal black attire, and unwavering focus on long-term goals over fleeting validation.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Contact & Footer -->
+      <section class="section-block contact-block">
+        <div class="section-header">
+          <span class="section-idx">04</span>
+          <span class="section-badge">INITIATE CONTACT</span>
+        </div>
+
+        <div class="contact-details-grid">
+          <a href="tel:9335085991" class="contact-card">
+            <span class="contact-label">DIRECT PHONE</span>
+            <span class="contact-val">+91 9335085991</span>
+          </a>
+          <a href="mailto:support@nucx.qzz.io" class="contact-card">
+            <span class="contact-label">EMAIL COMM</span>
+            <span class="contact-val">support@nucx.qzz.io</span>
+          </a>
+        </div>
+
+        <div class="social-row">
+          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="social-chip">Instagram ↗</a>
+          <a href="https://wa.me/919335085991" target="_blank" rel="noopener noreferrer" class="social-chip">WhatsApp ↗</a>
+          <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="social-chip">Telegram ↗</a>
+        </div>
+      </section>
+
+      <footer class="editorial-footer">
+        <div class="footer-left">VEV — Legacy Begins &bull; 2026</div>
+        <div class="footer-right">All rights reserved &bull; Confidentiality Protected</div>
+      </footer>
+
     </main>
 
-    <!-- Hidden Identity Verification Modal -->
-    <div id="auth-modal" class="modal-overlay">
-      <div class="modal-card">
-        <button type="button" class="modal-close-btn" onclick="closeAuthModal()">&times;</button>
-        <div class="modal-header">
-          <div class="modal-badge">RESTRICTED ACCESS</div>
-          <h3>Enter Identity & Passphrase</h3>
-          <p>Please declare details to request access to the Private Diary.</p>
+    <!-- Hidden Identity Modal (Restricted Access) -->
+    <div id="auth-modal" class="modal-backdrop">
+      <div class="editorial-modal">
+        <button type="button" class="modal-close" onclick="closeAuthModal()">&times;</button>
+        
+        <div class="modal-lead">
+          <span class="modal-tag">RESTRICTED ACCESS</span>
+          <h3>Private Archive</h3>
+          <p>Please enter your identity and the security passphrase to request access to the personal journal.</p>
         </div>
 
         <form id="access-form" onsubmit="handleAccessRequest(event)">
-          <div class="input-group">
-            <label for="visitor-name">Apna Naam</label>
-            <input type="text" id="visitor-name" placeholder="Aapka pura naam" required autocomplete="off">
+          <div class="form-group">
+            <label for="visitor-name">Full Name</label>
+            <input type="text" id="visitor-name" placeholder="Enter your full name" required autocomplete="off">
           </div>
 
-          <div class="input-group">
+          <div class="form-group">
             <label for="visitor-phone">Phone Number</label>
-            <input type="tel" id="visitor-phone" placeholder="Contact number" required autocomplete="off">
+            <input type="tel" id="visitor-phone" placeholder="+91 00000 00000" required autocomplete="off">
           </div>
 
-          <div class="input-group">
-            <label for="visitor-relation">Aap mere kaun hain?</label>
-            <input type="text" id="visitor-relation" placeholder="Friend / Family / Colleague / Unknown" required autocomplete="off">
+          <div class="form-group">
+            <label for="visitor-relation">Relation / Pehchan</label>
+            <input type="text" id="visitor-relation" placeholder="Aap mere kaun hain?" required autocomplete="off">
           </div>
 
-          <div class="input-group">
+          <div class="form-group">
             <label for="vault-password">Passphrase</label>
             <input type="password" id="vault-password" placeholder="••••••••••••" required autocomplete="off">
           </div>
 
-          <div id="auth-feedback" class="feedback-text"></div>
+          <div id="auth-feedback" class="modal-feedback"></div>
 
-          <button type="submit" class="submit-btn" id="submit-auth-btn">
-            Verify & Unlock Memoir
+          <button type="submit" class="modal-submit-btn" id="submit-auth-btn">
+            Request Access &rarr;
           </button>
         </form>
+
+        <p class="modal-privacy-note">Your details will be used to process your access request.</p>
       </div>
     </div>
 
-    <!-- Private 3D Book / Diary Workspace -->
-    <section id="diary-view" class="hidden-view">
-      <div class="diary-top-bar">
-        <button type="button" class="exit-btn" onclick="lockAndExitDiary()">← Back to Profile</button>
-        <div class="narration-toggle">
-          <label for="voice-toggle">Voice Readout 🎙️</label>
+    <!-- Private 3D Book / Journal View -->
+    <section id="diary-view" class="view-hidden">
+      <div class="diary-toolbar">
+        <button type="button" class="btn-subtle" onclick="lockAndExitDiary()">&larr; Return to Public</button>
+        <div class="audio-switch-wrap">
+          <label for="voice-toggle">Audio Narration</label>
           <input type="checkbox" id="voice-toggle" checked onchange="toggleNarrationState()">
         </div>
       </div>
 
-      <!-- Cyber 3D Book Scene -->
-      <div class="book-scene">
-        <div class="book-container" id="book-element">
+      <div class="book-viewport">
+        <div class="book-spread" id="book-element">
           <!-- Left Page -->
-          <div class="book-page left-page" id="page-left">
-            <div class="page-header">
-              <span class="journal-tag">VEV ARCHIVE</span>
-              <span class="page-num" id="left-page-num">#01</span>
+          <div class="book-leaf leaf-left">
+            <div class="leaf-meta">
+              <span class="leaf-doc">ARCHIVE &bull; VEV</span>
+              <span class="leaf-counter" id="left-page-num">#01</span>
             </div>
-            <div class="page-content">
-              <h2 id="left-page-title">Loading Chapter...</h2>
-              <div class="prose-content" id="left-page-text"></div>
-            </div>
+            <h2 id="left-page-title" class="leaf-title">Loading...</h2>
+            <div class="leaf-text" id="left-page-text"></div>
           </div>
 
-          <!-- Right Flippable Page -->
-          <div class="book-page right-page" id="page-right">
-            <div class="page-header">
-              <span class="journal-tag">RAW MEMOIR</span>
-              <span class="page-num" id="right-page-num">#02</span>
+          <!-- Right Page -->
+          <div class="book-leaf leaf-right" id="page-right">
+            <div class="leaf-meta">
+              <span class="leaf-doc">CONFIDENTIAL LOG</span>
+              <span class="leaf-counter" id="right-page-num">#02</span>
             </div>
-            <div class="page-content">
-              <h2 id="right-page-title">Loading Chapter...</h2>
-              <div class="prose-content" id="right-page-text"></div>
-            </div>
+            <h2 id="right-page-title" class="leaf-title">Loading...</h2>
+            <div class="leaf-text" id="right-page-text"></div>
           </div>
         </div>
       </div>
 
-      <!-- Book Navigation Controls -->
-      <div class="book-controls">
-        <button type="button" class="nav-page-btn" id="prev-page-btn" onclick="previousPageTurn()">&#8592; Previous</button>
-        <span class="page-status" id="book-page-indicator">Chapter 1 / --</span>
-        <button type="button" class="nav-page-btn" id="next-page-btn" onclick="nextPageTurn()">Next &#8594;</button>
+      <div class="diary-controls">
+        <button type="button" class="btn-subtle" id="prev-page-btn" onclick="previousPageTurn()">&larr; Previous Spread</button>
+        <span class="spread-indicator" id="book-page-indicator">Chapter 1 / --</span>
+        <button type="button" class="btn-subtle" id="next-page-btn" onclick="nextPageTurn()">Next Spread &rarr;</button>
       </div>
     </section>
 
