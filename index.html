@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>NUCX GROUP – BAWAL | Industrial Manpower & Recruitment Platform</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
     <!-- Header -->
     <header>
         <a href="#" class="logo">NUCX<span>GROUP</span></a>
-        <nav>
+        <nav id="navMenu">
             <ul>
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#jobs">Jobs</a></li>
@@ -27,7 +27,7 @@
         </nav>
         <div class="nav-right">
             <button class="lang-btn" id="langToggle">HI / EN</button>
-            <a href="https://wa.me/919335085991?text=Hello%20NUCX%20Group,%20I%20want%20to%20know%20about%20job%20vacancies%20in%20Bawal." target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://wa.me/919335085991?text=Hello%20NUCX%20Group,%20I%20want%20to%20know%20about%20job%20vacancies%20in%20Bawal." target="_blank" class="btn-primary whatsapp-nav-btn"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
     </header>
 
@@ -43,8 +43,8 @@
     </section>
 
     <!-- Trust Points Section -->
-    <section class="trust-section" style="padding: 2rem 5%;">
-        <div class="job-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    <section class="trust-section">
+        <div class="job-grid">
             <div class="job-card" style="text-align: center; padding: 1.5rem;">
                 <i class="fa-solid fa-shield-halved" style="font-size: 2rem; color: var(--neon-cyan); margin-bottom: 0.8rem;"></i>
                 <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Transparent Process</h3>
@@ -146,7 +146,7 @@
         <div class="form-container" style="max-width: 900px; line-height: 1.7; color: var(--text-muted);">
             <p style="margin-bottom: 1rem;"><strong style="color: var(--text-main);">NUCX Group</strong> is a manpower sourcing and recruitment network focused on connecting job seekers, industrial companies, manpower contractors and recruitment partners.</p>
             <p style="margin-bottom: 1rem;">Our primary focus is the industrial employment sector in Bawal and Rewari, Haryana. We aim to make the recruitment process simpler by connecting suitable candidates with relevant job opportunities and helping manpower agencies meet their workforce requirements.</p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
+            <div class="about-grid">
                 <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--neon-cyan);">
                     <h4 style="color: var(--text-main); margin-bottom: 0.5rem;"><i class="fa-solid fa-bullseye"></i> Our Mission</h4>
                     <p style="font-size: 0.9rem;">To connect people with employment opportunities and support industrial businesses through organised manpower sourcing.</p>
@@ -272,10 +272,11 @@
     <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="https://wa.me/919335085991?text=Hello%20NUCX%20Team,%20I%20am%20interested%20in%20industrial%20staffing." target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="tel:+919335085991"><i class="fa-solid fa-phone"></i></a>
-            <a href="mailto:contact@nucx.qzz.io"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/919335085991?text=Hello%20NUCX%20Team,%20I%20am%20interested%20in%20industrial%20staffing." target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="tel:+919335085991" title="Call Us"><i class="fa-solid fa-phone"></i></a>
+            <a href="mailto:support@nucx.qzz.io" title="Email Us"><i class="fa-solid fa-envelope"></i></a>
         </div>
+        <p style="margin-bottom: 0.5rem; color: var(--neon-cyan);">Email: support@nucx.qzz.io | WhatsApp: +91 9335085991</p>
         <p>&copy; 2026 NUCX Group – Bawal. All Rights Reserved. Industrial Staffing & Recruitment Platform.</p>
         <p style="font-size: 0.75rem; margin-top: 0.5rem; color: #64748B;">No registration fee charged. Subject to employer verification.</p>
     </footer>
