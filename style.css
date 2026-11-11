@@ -17,12 +17,12 @@
     max-width: 100%;
 }
 
-body {
+html, body {
+    width: 100%;
+    overflow-x: hidden;
     background-color: var(--bg-midnight);
     color: var(--text-main);
-    overflow-x: hidden;
     position: relative;
-    width: 100%;
 }
 
 body::before {
@@ -31,8 +31,9 @@ body::before {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 1000px;
-    height: 500px;
+    width: 100%;
+    max-width: 1000px;
+    height: 400px;
     background: radial-gradient(circle, rgba(37, 99, 255, 0.15) 0%, rgba(139, 92, 246, 0.05) 50%, transparent 70%);
     z-index: -1;
 }
@@ -49,12 +50,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 4%;
+    padding: 0.75rem 4%;
 }
 
 .logo {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: 1.5px;
     color: var(--text-main);
@@ -69,13 +70,13 @@ header {
 nav ul {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
+    gap: 1.2rem;
 }
 
 nav a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     transition: color 0.3s ease;
 }
@@ -88,36 +89,30 @@ nav a:hover, nav a.active {
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
 }
 
 .lang-btn {
     background: transparent;
     border: 1px solid var(--neon-cyan);
     color: var(--neon-cyan);
-    padding: 0.3rem 0.6rem;
+    padding: 0.25rem 0.5rem;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 0.75rem;
-    transition: all 0.3s ease;
-}
-
-.lang-btn:hover {
-    background: var(--neon-cyan);
-    color: var(--bg-midnight);
-    box-shadow: 0 0 12px var(--neon-cyan);
+    font-size: 0.7rem;
 }
 
 .whatsapp-nav-btn {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.85rem;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
 }
 
 .hero {
-    padding: 8rem 4% 4rem;
+    padding: 6.5rem 4% 2.5rem;
     text-align: center;
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -126,21 +121,19 @@ nav a:hover, nav a.active {
     background: rgba(0, 217, 255, 0.1);
     border: 1px solid var(--border-glow);
     color: var(--neon-cyan);
-    padding: 0.3rem 0.8rem;
+    padding: 0.25rem 0.75rem;
     border-radius: 50px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-bottom: 1.2rem;
-    box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+    margin-bottom: 1rem;
 }
 
 .hero h1 {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     background: linear-gradient(135deg, #FFFFFF 30%, var(--neon-cyan) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -148,105 +141,85 @@ nav a:hover, nav a.active {
 
 .hero p {
     color: var(--text-muted);
-    font-size: 1rem;
-    margin-bottom: 2rem;
+    font-size: 0.88rem;
+    margin-bottom: 1.5rem;
     line-height: 1.5;
 }
 
 .hero-btns {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.8rem;
     flex-wrap: wrap;
 }
 
 .btn-primary {
     background: linear-gradient(135deg, var(--electric-blue), var(--violet));
     color: #FFFFFF;
-    padding: 0.75rem 1.5rem;
+    padding: 0.65rem 1.25rem;
     border-radius: 8px;
     font-weight: 600;
     text-decoration: none;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(37, 99, 255, 0.4);
-    transition: transform 0.2s, box-shadow 0.2s;
-    font-size: 0.95rem;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(0, 217, 255, 0.5);
+    box-shadow: 0 4px 15px rgba(37, 99, 255, 0.3);
+    font-size: 0.85rem;
 }
 
 .btn-secondary {
     background: transparent;
     border: 1px solid var(--border-glow);
     color: var(--text-main);
-    padding: 0.75rem 1.5rem;
+    padding: 0.65rem 1.25rem;
     border-radius: 8px;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.2s;
-    font-size: 0.95rem;
-}
-
-.btn-secondary:hover {
-    border-color: var(--neon-cyan);
-    color: var(--neon-cyan);
-    background: rgba(0, 217, 255, 0.05);
+    font-size: 0.85rem;
 }
 
 section {
-    padding: 4rem 4%;
+    padding: 2.5rem 4%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .trust-section {
-    padding: 2rem 4%;
+    padding: 1rem 4% 2rem;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.8rem;
 }
 
 .section-title h2 {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 2.1rem;
+    font-size: 1.75rem;
     font-weight: 700;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
     color: var(--text-main);
 }
 
 .section-title p {
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.82rem;
 }
 
 .job-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
 }
 
 .job-card {
     background: var(--bg-card);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 1.2rem;
+    border-radius: 10px;
+    padding: 1.1rem;
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-}
-
-.job-card:hover {
-    border-color: var(--neon-cyan);
-    box-shadow: 0 0 20px rgba(0, 217, 255, 0.15);
-    transform: translateY(-3px);
 }
 
 .job-card::before {
@@ -254,7 +227,7 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px;
+    width: 3px;
     height: 100%;
     background: var(--neon-cyan);
 }
@@ -262,12 +235,12 @@ section {
 .job-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 0.8rem;
+    align-items: center;
+    margin-bottom: 0.7rem;
 }
 
 .job-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--text-main);
 }
@@ -275,8 +248,8 @@ section {
 .verified-badge {
     background: rgba(16, 185, 129, 0.15);
     color: #34D399;
-    font-size: 0.65rem;
-    padding: 0.2rem 0.4rem;
+    font-size: 0.6rem;
+    padding: 0.15rem 0.35rem;
     border-radius: 4px;
     font-weight: 600;
 }
@@ -287,12 +260,12 @@ section {
 }
 
 .job-details li {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.35rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
 .job-details li i {
@@ -303,146 +276,97 @@ section {
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-    margin-top: 1.5rem;
+    gap: 1rem;
+    margin-top: 1.2rem;
 }
 
 .form-container {
     background: var(--bg-card);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
-    padding: 1.8rem;
-    max-width: 700px;
+    border-radius: 12px;
+    padding: 1.25rem;
+    max-width: 650px;
     margin: 0 auto;
     backdrop-filter: blur(12px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
 }
 
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
+    gap: 0.75rem;
 }
 
 label {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--text-muted);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
 }
 
 input, select, textarea {
     width: 100%;
     background: rgba(15, 23, 42, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 0.7rem 0.9rem;
+    border-radius: 6px;
+    padding: 0.6rem 0.8rem;
     color: var(--text-main);
-    font-size: 0.9rem;
-    transition: border-color 0.3s;
+    font-size: 0.85rem;
 }
 
 input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--neon-cyan);
-    box-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
 }
 
 footer {
     background: rgba(4, 7, 14, 0.95);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 2.5rem 4%;
+    padding: 2rem 4%;
     text-align: center;
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 footer .social-links {
     display: flex;
     justify-content: center;
-    gap: 1.2rem;
-    margin-bottom: 1rem;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 footer .social-links a {
     color: var(--neon-cyan);
-    font-size: 1.2rem;
-    transition: color 0.3s;
+    font-size: 1.1rem;
 }
 
-footer .social-links a:hover {
-    color: #FFFFFF;
-}
-
-/* Floating WhatsApp Button */
 .floating-whatsapp {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 18px;
+    right: 18px;
     background: #25D366;
     color: #FFFFFF;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.6rem;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+    font-size: 1.4rem;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
     z-index: 9999;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.floating-whatsapp:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.8);
-}
-
-/* Mobile Responsive Media Queries */
-@media (max-width: 768px) {
-    header {
-        padding: 0.7rem 3%;
-    }
-    
-    nav {
-        display: none; /* Can be expanded into mobile hamburger menu if needed, or keeping clean compact view */
-    }
-
-    .hero {
-        padding: 7rem 3% 3rem;
-    }
-
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero p {
-        font-size: 0.95rem;
-    }
-
-    .section-title h2 {
-        font-size: 1.8rem;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .form-container {
-        padding: 1.2rem;
-    }
-
-    section {
-        padding: 3rem 3%;
-    }
+@media (max-width: 600px) {
+    nav { display: none; }
+    .hero { padding: 5.5rem 3% 2rem; }
+    .hero h1 { font-size: 1.85rem; }
+    .hero-btns { flex-direction: column; gap: 0.6rem; }
+    .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+    .job-grid, .form-row, .about-grid { grid-template-columns: 1fr; gap: 0; }
+    section { padding: 2rem 3%; }
 }
