@@ -27,7 +27,7 @@
         </nav>
         <div class="nav-right">
             <button class="lang-btn" id="langToggle">HI / EN</button>
-            <a href="https://wa.me/919335085991?text=Hello%20NUCX%20Group,%20I%20want%20to%20know%20about%20job%20vacancies%20in%20Bawal." target="_blank" class="btn-primary whatsapp-nav-btn"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://wa.me/919335085991?text=Hello%20NUCX%20Group,%20I%20want%20to%20know%20about%20job%20vacancies%20in%20Bawal." target="_blank" class="btn-primary whatsapp-nav-btn" aria-label="WhatsApp Us"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
     </header>
 
@@ -45,37 +45,41 @@
     <!-- Trust Points Section -->
     <section class="trust-section">
         <div class="job-grid">
-            <div class="job-card" style="text-align: center; padding: 1.5rem;">
-                <i class="fa-solid fa-shield-halved" style="font-size: 2rem; color: var(--neon-cyan); margin-bottom: 0.8rem;"></i>
-                <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Transparent Process</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Clear job information, zero registration fees.</p>
+            <div class="job-card text-center">
+                <i class="fa-solid fa-shield-halved trust-icon"></i>
+                <h3 class="trust-title">Transparent Process</h3>
+                <p class="trust-desc">Clear job information, zero registration fees.</p>
             </div>
-            <div class="job-card" style="text-align: center; padding: 1.5rem;">
-                <i class="fa-solid fa-network-wired" style="font-size: 2rem; color: var(--neon-cyan); margin-bottom: 0.8rem;"></i>
-                <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Manpower Network</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Connecting candidates and recruitment partners.</p>
+            <div class="job-card text-center">
+                <i class="fa-solid fa-network-wired trust-icon"></i>
+                <h3 class="trust-title">Manpower Network</h3>
+                <p class="trust-desc">Connecting candidates and recruitment partners.</p>
             </div>
-            <div class="job-card" style="text-align: center; padding: 1.5rem;">
-                <i class="fa-solid fa-handshake" style="font-size: 2rem; color: var(--neon-cyan); margin-bottom: 0.8rem;"></i>
-                <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Partner Collaboration</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Working with industrial staffing contractors.</p>
+            <div class="job-card text-center">
+                <i class="fa-solid fa-handshake trust-icon"></i>
+                <h3 class="trust-title">Partner Collaboration</h3>
+                <p class="trust-desc">Working with industrial staffing contractors.</p>
             </div>
-            <div class="job-card" style="text-align: center; padding: 1.5rem;">
-                <i class="fa-solid fa-headset" style="font-size: 2rem; color: var(--neon-cyan); margin-bottom: 0.8rem;"></i>
-                <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Candidate Support</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Dedicated coordination for job enquiries.</p>
+            <div class="job-card text-center">
+                <i class="fa-solid fa-headset trust-icon"></i>
+                <h3 class="trust-title">Candidate Support</h3>
+                <p class="trust-desc">Dedicated coordination for job enquiries.</p>
             </div>
         </div>
     </section>
 
-    <!-- Job Openings Section -->
+    <!-- Job Openings Section with Public Work Images -->
     <section id="jobs">
         <div class="section-title">
             <h2 id="jobsHeading">Production & Factory Staff Openings</h2>
             <p id="jobsSub">Male & Female vacancies across Bawal / Rewari industrial units. 10th / 12th / ITI / Diploma.</p>
         </div>
         <div class="job-grid">
+            <!-- Job 1 -->
             <div class="job-card">
+                <div class="job-img-box">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format&fit=crop&q=80" alt="Production Line Assembly" class="job-work-img">
+                </div>
                 <div class="job-header">
                     <span class="job-title">Production Line / Assembly</span>
                     <span class="verified-badge">Verified</span>
@@ -86,11 +90,15 @@
                     <li><i class="fa-solid fa-clock"></i> 8 / 12 Hours Duty (Shift wise)</li>
                     <li><i class="fa-solid fa-graduation-cap"></i> 10th / 12th / ITI (Fresher/Exp)</li>
                 </ul>
-                <p style="font-size: 0.8rem; color: #34D399; margin-bottom: 1rem;"><i class="fa-solid fa-circle-check"></i> Attendance Bonus ₹1k | OT ₹120/hr</p>
-                <a href="#apply" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 0.6rem;" onclick="selectJob('Production Line / Assembly')">Apply Now</a>
+                <p class="job-perk"><i class="fa-solid fa-circle-check"></i> Attendance Bonus ₹1k | OT ₹120/hr</p>
+                <a href="#apply" class="btn-secondary job-apply-btn" onclick="selectJob('Production Line / Assembly')">Apply Now</a>
             </div>
 
+            <!-- Job 2 -->
             <div class="job-card">
+                <div class="job-img-box">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&auto=format&fit=crop&q=80" alt="Packing and Warehouse Staff" class="job-work-img">
+                </div>
                 <div class="job-header">
                     <span class="job-title">Packing & Loading Staff</span>
                     <span class="verified-badge">Verified</span>
@@ -101,11 +109,15 @@
                     <li><i class="fa-solid fa-clock"></i> Day / Night Shifts</li>
                     <li><i class="fa-solid fa-graduation-cap"></i> Basic Literacy / 10th Pass</li>
                 </ul>
-                <p style="font-size: 0.8rem; color: #34D399; margin-bottom: 1rem;"><i class="fa-solid fa-circle-check"></i> Canteen & Bus Facility Available</p>
-                <a href="#apply" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 0.6rem;" onclick="selectJob('Packing & Loading Staff')">Apply Now</a>
+                <p class="job-perk"><i class="fa-solid fa-circle-check"></i> Canteen & Bus Facility Available</p>
+                <a href="#apply" class="btn-secondary job-apply-btn" onclick="selectJob('Packing & Loading Staff')">Apply Now</a>
             </div>
 
+            <!-- Job 3 -->
             <div class="job-card">
+                <div class="job-img-box">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop&q=80" alt="Quality Inspection" class="job-work-img">
+                </div>
                 <div class="job-header">
                     <span class="job-title">Quality Checking Inspector</span>
                     <span class="verified-badge">Verified</span>
@@ -116,11 +128,15 @@
                     <li><i class="fa-solid fa-clock"></i> 8 Hours Standard Shift</li>
                     <li><i class="fa-solid fa-graduation-cap"></i> ITI / Diploma / Graduate</li>
                 </ul>
-                <p style="font-size: 0.8rem; color: #34D399; margin-bottom: 1rem;"><i class="fa-solid fa-circle-check"></i> Wellness Allowance ₹500</p>
-                <a href="#apply" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 0.6rem;" onclick="selectJob('Quality Checking Inspector')">Apply Now</a>
+                <p class="job-perk"><i class="fa-solid fa-circle-check"></i> Wellness Allowance ₹500</p>
+                <a href="#apply" class="btn-secondary job-apply-btn" onclick="selectJob('Quality Checking Inspector')">Apply Now</a>
             </div>
 
+            <!-- Job 4 -->
             <div class="job-card">
+                <div class="job-img-box">
+                    <img src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?w=600&auto=format&fit=crop&q=80" alt="Machine Operator Skilled" class="job-work-img">
+                </div>
                 <div class="job-header">
                     <span class="job-title">Machine Operator (Skilled)</span>
                     <span class="verified-badge">Verified</span>
@@ -131,32 +147,32 @@
                     <li><i class="fa-solid fa-clock"></i> Rotating Shifts + OT</li>
                     <li><i class="fa-solid fa-graduation-cap"></i> ITI / Skilled Experience</li>
                 </ul>
-                <p style="font-size: 0.8rem; color: #34D399; margin-bottom: 1rem;"><i class="fa-solid fa-circle-check"></i> Salary depends on skill & experience</p>
-                <a href="#apply" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 0.6rem;" onclick="selectJob('Machine Operator (Skilled)')">Apply Now</a>
+                <p class="job-perk"><i class="fa-solid fa-circle-check"></i> Salary depends on skill & exp</p>
+                <a href="#apply" class="btn-secondary job-apply-btn" onclick="selectJob('Machine Operator (Skilled)')">Apply Now</a>
             </div>
         </div>
     </section>
 
-    <!-- About NUCX Section -->
-    <section id="about" style="background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <!-- About Section -->
+    <section id="about" class="about-section">
         <div class="section-title">
             <h2>About NUCX Group – Bawal</h2>
             <p>Powering industrial workforce across Bawal and Rewari.</p>
         </div>
-        <div class="form-container" style="max-width: 900px; line-height: 1.7; color: var(--text-muted);">
+        <div class="form-container about-box">
             <p style="margin-bottom: 1rem;"><strong style="color: var(--text-main);">NUCX Group</strong> is a manpower sourcing and recruitment network focused on connecting job seekers, industrial companies, manpower contractors and recruitment partners.</p>
             <p style="margin-bottom: 1rem;">Our primary focus is the industrial employment sector in Bawal and Rewari, Haryana. We aim to make the recruitment process simpler by connecting suitable candidates with relevant job opportunities and helping manpower agencies meet their workforce requirements.</p>
             <div class="about-grid">
-                <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--neon-cyan);">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;"><i class="fa-solid fa-bullseye"></i> Our Mission</h4>
-                    <p style="font-size: 0.9rem;">To connect people with employment opportunities and support industrial businesses through organised manpower sourcing.</p>
+                <div class="about-card-item card-cyan">
+                    <h4><i class="fa-solid fa-bullseye"></i> Our Mission</h4>
+                    <p>To connect people with employment opportunities and support industrial businesses through organised manpower sourcing.</p>
                 </div>
-                <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--electric-blue);">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;"><i class="fa-solid fa-eye"></i> Our Vision</h4>
-                    <p style="font-size: 0.9rem;">To build a reliable recruitment and manpower partner network across industrial locations.</p>
+                <div class="about-card-item card-blue">
+                    <h4><i class="fa-solid fa-eye"></i> Our Vision</h4>
+                    <p>To build a reliable recruitment and manpower partner network across industrial locations.</p>
                 </div>
             </div>
-            <div style="margin-top: 2rem; padding: 1rem; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 6px; font-size: 0.85rem; color: #F87171;">
+            <div class="important-note">
                 <i class="fa-solid fa-triangle-exclamation"></i> <strong>Important Note:</strong> We believe in transparency and responsible recruitment. We do not promise guaranteed selection or employment. Candidates are not required to pay any registration fee to NUCX Group.
             </div>
         </div>
@@ -178,13 +194,13 @@
                     </div>
                     <div class="form-group">
                         <label>Mobile Number (WhatsApp) *</label>
-                        <input type="tel" name="phone" required placeholder="e.g. 9876543210">
+                        <input type="tel" name="phone" pattern="[0-9]{10}" maxlength="10" required placeholder="10-digit number">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label>Age *</label>
-                        <input type="number" name="age" required placeholder="e.g. 21">
+                        <input type="number" name="age" min="18" max="55" required placeholder="e.g. 21">
                     </div>
                     <div class="form-group">
                         <label>Gender *</label>
@@ -230,7 +246,7 @@
                         <input type="text" name="location" required placeholder="e.g. Bawal / Rewari">
                     </div>
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; padding: 1rem;">Submit Application & Notify Desk</button>
+                <button type="submit" class="btn-primary form-submit-btn">Submit Application & Notify Desk</button>
             </form>
         </div>
     </section>
@@ -247,11 +263,11 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>Agency / Company Name *</label>
-                        <input type="text" name="fullName" required placeholder="e.g. Vzixo Manpower">
+                        <input type="text" name="companyName" required placeholder="e.g. Vzixo Manpower">
                     </div>
                     <div class="form-group">
                         <label>Contact Person Mobile *</label>
-                        <input type="tel" name="phone" required placeholder="e.g. 9335085991">
+                        <input type="tel" name="phone" pattern="[0-9]{10}" maxlength="10" required placeholder="10-digit number">
                     </div>
                 </div>
                 <div class="form-row">
@@ -261,10 +277,10 @@
                     </div>
                     <div class="form-group">
                         <label>Required Manpower *</label>
-                        <input type="text" name="qualification" required placeholder="e.g. 30 Workers (Male/Female)">
+                        <input type="text" name="manpowerCount" required placeholder="e.g. 30 Workers (Male/Female)">
                     </div>
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; padding: 1rem;">Submit Partnership Request</button>
+                <button type="submit" class="btn-primary form-submit-btn">Submit Partnership Request</button>
             </form>
         </div>
     </section>
@@ -272,12 +288,13 @@
     <!-- Professional Success Modal Popup -->
     <div id="successModal" class="modal-overlay">
         <div class="modal-card">
+            <button class="modal-close" onclick="closeModal()" aria-label="Close Modal">&times;</button>
             <div class="modal-icon"><i class="fa-solid fa-circle-check"></i></div>
             <h3>Application Received!</h3>
             <p>Your details have been successfully submitted to NUCX Desk & Telegram Alert sent to the management team.</p>
             <div class="modal-actions">
-                <button id="whatsappRedirectBtn" class="btn-primary" style="background: #25D366; width: 100%; margin-bottom: 0.5rem;"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</button>
-                <button onclick="closeModal()" class="btn-secondary" style="width: 100%;">Close</button>
+                <button id="whatsappRedirectBtn" class="btn-primary whatsapp-modal-btn"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</button>
+                <button onclick="closeModal()" class="btn-secondary close-modal-btn">Close</button>
             </div>
         </div>
     </div>
@@ -289,13 +306,13 @@
             <a href="tel:+919335085991" title="Call Us"><i class="fa-solid fa-phone"></i></a>
             <a href="mailto:support@nucx.qzz.io" title="Email Us"><i class="fa-solid fa-envelope"></i></a>
         </div>
-        <p style="margin-bottom: 0.5rem; color: var(--neon-cyan);">Email: support@nucx.qzz.io | WhatsApp: +91 9335085991</p>
+        <p class="footer-contact">Email: support@nucx.qzz.io | WhatsApp: +91 9335085991</p>
         <p>&copy; 2026 NUCX Group – Bawal. All Rights Reserved. Industrial Staffing & Recruitment Platform.</p>
-        <p style="font-size: 0.75rem; margin-top: 0.5rem; color: #64748B;">No registration fee charged. Subject to employer verification.</p>
+        <p class="footer-disclaimer">No registration fee charged. Subject to employer verification.</p>
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/919335085991?text=Hello%20NUCX%20Team,%20I%20want%20to%20apply%20for%20a%20job%20in%20Bawal." target="_blank" class="floating-whatsapp">
+    <a href="https://wa.me/919335085991?text=Hello%20NUCX%20Team,%20I%20want%20to%20apply%20for%20a%20job%20in%20Bawal." target="_blank" class="floating-whatsapp" aria-label="Contact on WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
