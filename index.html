@@ -230,7 +230,7 @@
                         <input type="text" name="location" required placeholder="e.g. Bawal / Rewari">
                     </div>
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; padding: 1rem;">Submit & Connect on WhatsApp</button>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; padding: 1rem;">Submit Application & Notify Desk</button>
             </form>
         </div>
     </section>
@@ -268,6 +268,19 @@
             </form>
         </div>
     </section>
+
+    <!-- Professional Success Modal Popup -->
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <h3>Application Received!</h3>
+            <p>Your details have been successfully submitted to NUCX Desk & Telegram Alert sent to the management team.</p>
+            <div class="modal-actions">
+                <button id="whatsappRedirectBtn" class="btn-primary" style="background: #25D366; width: 100%; margin-bottom: 0.5rem;"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</button>
+                <button onclick="closeModal()" class="btn-secondary" style="width: 100%;">Close</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
