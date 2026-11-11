@@ -8,382 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --bg-midnight: #080D18;
-            --bg-card: rgba(15, 23, 42, 0.7);
-            --neon-cyan: #00D9FF;
-            --electric-blue: #2563FF;
-            --violet: #8B5CF6;
-            --text-main: #F8FAFC;
-            --text-muted: #94A3B8;
-            --border-glow: rgba(0, 217, 255, 0.3);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-midnight);
-            color: var(--text-main);
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Background Glow Effect */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1000px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(37, 99, 255, 0.15) 0%, rgba(139, 92, 246, 0.05) 50%, transparent 70%);
-            z-index: -1;
-        }
-
-        /* Header & Navbar */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(8, 13, 24, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 217, 255, 0.15);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-        }
-
-        .logo {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--text-main);
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--neon-cyan);
-            text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover, nav a.active {
-            color: var(--neon-cyan);
-            text-shadow: 0 0 8px rgba(0, 217, 255, 0.4);
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .lang-btn {
-            background: transparent;
-            border: 1px solid var(--neon-cyan);
-            color: var(--neon-cyan);
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-        }
-
-        .lang-btn:hover {
-            background: var(--neon-cyan);
-            color: var(--bg-midnight);
-            box-shadow: 0 0 12px var(--neon-cyan);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 10rem 5% 6rem;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(0, 217, 255, 0.1);
-            border: 1px solid var(--border-glow);
-            color: var(--neon-cyan);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
-        }
-
-        .hero h1 {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #FFFFFF 30%, var(--neon-cyan) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            font-size: 1.15rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
-        }
-
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--electric-blue), var(--violet));
-            color: #FFFFFF;
-            padding: 0.8rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(37, 99, 255, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(0, 217, 255, 0.5);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 1px solid var(--border-glow);
-            color: var(--text-main);
-            padding: 0.8rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--neon-cyan);
-            color: var(--neon-cyan);
-            background: rgba(0, 217, 255, 0.05);
-        }
-
-        /* Section Styling */
-        section {
-            padding: 5rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-main);
-        }
-
-        .section-title p {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        /* Job Cards Grid */
-        .job-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .job-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 1.5rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .job-card:hover {
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .job-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--neon-cyan);
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .job-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-        .verified-badge {
-            background: rgba(16, 185, 129, 0.15);
-            color: #34D399;
-            font-size: 0.7rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .job-details {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .job-details li {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .job-details li i {
-            color: var(--neon-cyan);
-            width: 16px;
-        }
-
-        /* Forms Layout */
-        .form-container {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 2.5rem;
-            max-width: 700px;
-            margin: 0 auto;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 0.75rem 1rem;
-            color: var(--text-main);
-            font-size: 0.95rem;
-            transition: border-color 0.3s;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(4, 7, 14, 0.95);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 3rem 5%;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        footer .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        footer .social-links a {
-            color: var(--neon-cyan);
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-
-        footer .social-links a:hover {
-            color: #FFFFFF;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav { display: none; }
-            .form-row { grid-template-columns: 1fr; }
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -394,76 +20,89 @@
             <ul>
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#jobs">Jobs</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#apply">Apply</a></li>
                 <li><a href="#partner">Partners</a></li>
-                <li><a href="#referral">Referral</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
         <div class="nav-right">
             <button class="lang-btn" id="langToggle">HI / EN</button>
-            <a href="https://wa.me/919335085991" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://wa.me/919335085991?text=Hello%20NUCX%20Group,%20I%20want%20to%20know%20about%20job%20vacancies%20in%20Bawal." target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="badge">BAWAL • REWARI INDUSTRIAL STAFFING</div>
-        <h1 id="heroTitle">Connecting Talent With Opportunities</h1>
-        <p id="heroDesc">Your premier manpower and recruitment connection for industrial job opportunities, verified staffing solutions, and factory placement in Bawal, Haryana.</p>
+        <h1 id="heroTitle">Powering Industrial Workforce.</h1>
+        <p id="heroDesc">Connecting job seekers, manpower partners and industrial opportunities in Bawal & Rewari, Haryana. Starting salary from ₹15,000/month with transparent terms.</p>
         <div class="hero-btns">
-            <a href="#jobs" class="btn-primary" id="btnFindJobs">Find a Job</a>
-            <a href="#partner" class="btn-secondary" id="btnPartner">Partner With Us</a>
+            <a href="#jobs" class="btn-primary" id="btnFindJobs">Explore Opportunities</a>
+            <a href="#partner" class="btn-secondary" id="btnPartner">Supply Manpower</a>
+        </div>
+    </section>
+
+    <!-- Trust Points Section -->
+    <section class="trust-section" style="padding: 2rem 5%;">
+        <div class="job-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+            <div class="job-card" style="text-align: center; padding: 1.5rem;">
+                <i class="fa-solid fa-shield-halved" style="font-size: 2rem; color: var(--neon-cyan); margin-bottom: 0.8rem;"></i>
+                <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Transparent Process</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Clear job information, zero registration fees.</p>
+            </div>
+            <div class="job-card" style="text-align: center; padding: 1.5rem;">
+                <i class="fa-solid fa-network-wired" style="font-size: 2rem; color: var(--neon-cyan); margin-bottom: 0.8rem;"></i>
+                <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Manpower Network</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Connecting candidates and recruitment partners.</p>
+            </div>
+            <div class="job-card" style="text-align: center; padding: 1.5rem;">
+                <i class="fa-solid fa-handshake" style="font-size: 2rem; color: var(--neon-cyan); margin-bottom: 0.8rem;"></i>
+                <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Partner Collaboration</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Working with industrial staffing contractors.</p>
+            </div>
+            <div class="job-card" style="text-align: center; padding: 1.5rem;">
+                <i class="fa-solid fa-headset" style="font-size: 2rem; color: var(--neon-cyan); margin-bottom: 0.8rem;"></i>
+                <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Candidate Support</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Dedicated coordination for job enquiries.</p>
+            </div>
         </div>
     </section>
 
     <!-- Job Openings Section -->
     <section id="jobs">
         <div class="section-title">
-            <h2 id="jobsHeading">Current Job Openings</h2>
-            <p id="jobsSub">Verified vacancies across industrial units and manufacturing plants in Bawal.</p>
+            <h2 id="jobsHeading">Production & Factory Staff Openings</h2>
+            <p id="jobsSub">Male & Female vacancies across Bawal / Rewari industrial units. 10th / 12th / ITI / Diploma.</p>
         </div>
         <div class="job-grid">
             <div class="job-card">
                 <div class="job-header">
-                    <span class="job-title">Production Line Operator</span>
+                    <span class="job-title">Production Line / Assembly</span>
                     <span class="verified-badge">Verified</span>
                 </div>
                 <ul class="job-details">
-                    <li><i class="fa-solid fa-location-dot"></i> Bawal Phase 1, Haryana</li>
-                    <li><i class="fa-solid fa-indian-rupee-sign"></i> ₹16,000 - ₹20,000 / month</li>
-                    <li><i class="fa-solid fa-clock"></i> Rotating Shifts (8 Hours)</li>
-                    <li><i class="fa-solid fa-graduation-cap"></i> 10th / 12th / ITI</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Bawal Phase 1 & 2</li>
+                    <li><i class="fa-solid fa-indian-rupee-sign"></i> Starting From ₹15,000/Month</li>
+                    <li><i class="fa-solid fa-clock"></i> 8 / 12 Hours Duty (Shift wise)</li>
+                    <li><i class="fa-solid fa-graduation-cap"></i> 10th / 12th / ITI (Fresher/Exp)</li>
                 </ul>
-                <a href="#apply" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 0.6rem;" onclick="selectJob('Production Line Operator')">Apply Now</a>
+                <p style="font-size: 0.8rem; color: #34D399; margin-bottom: 1rem;"><i class="fa-solid fa-circle-check"></i> Attendance Bonus ₹1k | OT ₹120/hr</p>
+                <a href="#apply" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 0.6rem;" onclick="selectJob('Production Line / Assembly')">Apply Now</a>
             </div>
 
             <div class="job-card">
                 <div class="job-header">
-                    <span class="job-title">Assembly & Packing Staff</span>
+                    <span class="job-title">Packing & Loading Staff</span>
                     <span class="verified-badge">Verified</span>
                 </div>
                 <ul class="job-details">
                     <li><i class="fa-solid fa-location-dot"></i> Growth Centre Bawal</li>
-                    <li><i class="fa-solid fa-indian-rupee-sign"></i> ₹14,000 - ₹17,500 / month</li>
-                    <li><i class="fa-solid fa-clock"></i> Day / Night Shift</li>
-                    <li><i class="fa-solid fa-graduation-cap"></i> 8th / 10th Pass</li>
+                    <li><i class="fa-solid fa-indian-rupee-sign"></i> Starting From ₹15,000/Month</li>
+                    <li><i class="fa-solid fa-clock"></i> Day / Night Shifts</li>
+                    <li><i class="fa-solid fa-graduation-cap"></i> Basic Literacy / 10th Pass</li>
                 </ul>
-                <a href="#apply" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 0.6rem;" onclick="selectJob('Assembly & Packing Staff')">Apply Now</a>
-            </div>
-
-            <div class="job-card">
-                <div class="job-header">
-                    <span class="job-title">Helper & Loading Master</span>
-                    <span class="verified-badge">Verified</span>
-                </div>
-                <ul class="job-details">
-                    <li><i class="fa-solid fa-location-dot"></i> Sector 3 Bawal</li>
-                    <li><i class="fa-solid fa-indian-rupee-sign"></i> ₹15,000 - ₹18,000 / month</li>
-                    <li><i class="fa-solid fa-clock"></i> Standard Shift + OT</li>
-                    <li><i class="fa-solid fa-graduation-cap"></i> Basic Literacy</li>
-                </ul>
-                <a href="#apply" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 0.6rem;" onclick="selectJob('Helper & Loading Master')">Apply Now</a>
+                <p style="font-size: 0.8rem; color: #34D399; margin-bottom: 1rem;"><i class="fa-solid fa-circle-check"></i> Canteen & Bus Facility Available</p>
+                <a href="#apply" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 0.6rem;" onclick="selectJob('Packing & Loading Staff')">Apply Now</a>
             </div>
 
             <div class="job-card">
@@ -473,11 +112,52 @@
                 </div>
                 <ul class="job-details">
                     <li><i class="fa-solid fa-location-dot"></i> Bawal Industrial Area</li>
-                    <li><i class="fa-solid fa-indian-rupee-sign"></i> ₹18,000 - ₹24,000 / month</li>
-                    <li><i class="fa-solid fa-clock"></i> 8 Hours Shift</li>
+                    <li><i class="fa-solid fa-indian-rupee-sign"></i> Starting From ₹16,500/Month</li>
+                    <li><i class="fa-solid fa-clock"></i> 8 Hours Standard Shift</li>
                     <li><i class="fa-solid fa-graduation-cap"></i> ITI / Diploma / Graduate</li>
                 </ul>
+                <p style="font-size: 0.8rem; color: #34D399; margin-bottom: 1rem;"><i class="fa-solid fa-circle-check"></i> Wellness Allowance ₹500</p>
                 <a href="#apply" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 0.6rem;" onclick="selectJob('Quality Checking Inspector')">Apply Now</a>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <span class="job-title">Machine Operator (Skilled)</span>
+                    <span class="verified-badge">Verified</span>
+                </div>
+                <ul class="job-details">
+                    <li><i class="fa-solid fa-location-dot"></i> Sector 3 & 4 Bawal</li>
+                    <li><i class="fa-solid fa-indian-rupee-sign"></i> Starting From ₹18,000/Month</li>
+                    <li><i class="fa-solid fa-clock"></i> Rotating Shifts + OT</li>
+                    <li><i class="fa-solid fa-graduation-cap"></i> ITI / Skilled Experience</li>
+                </ul>
+                <p style="font-size: 0.8rem; color: #34D399; margin-bottom: 1rem;"><i class="fa-solid fa-circle-check"></i> Salary depends on skill & experience</p>
+                <a href="#apply" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 0.6rem;" onclick="selectJob('Machine Operator (Skilled)')">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About NUCX Section -->
+    <section id="about" style="background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="section-title">
+            <h2>About NUCX Group – Bawal</h2>
+            <p>Powering industrial workforce across Bawal and Rewari.</p>
+        </div>
+        <div class="form-container" style="max-width: 900px; line-height: 1.7; color: var(--text-muted);">
+            <p style="margin-bottom: 1rem;"><strong style="color: var(--text-main);">NUCX Group</strong> is a manpower sourcing and recruitment network focused on connecting job seekers, industrial companies, manpower contractors and recruitment partners.</p>
+            <p style="margin-bottom: 1rem;">Our primary focus is the industrial employment sector in Bawal and Rewari, Haryana. We aim to make the recruitment process simpler by connecting suitable candidates with relevant job opportunities and helping manpower agencies meet their workforce requirements.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
+                <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--neon-cyan);">
+                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;"><i class="fa-solid fa-bullseye"></i> Our Mission</h4>
+                    <p style="font-size: 0.9rem;">To connect people with employment opportunities and support industrial businesses through organised manpower sourcing.</p>
+                </div>
+                <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--electric-blue);">
+                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;"><i class="fa-solid fa-eye"></i> Our Vision</h4>
+                    <p style="font-size: 0.9rem;">To build a reliable recruitment and manpower partner network across industrial locations.</p>
+                </div>
+            </div>
+            <div style="margin-top: 2rem; padding: 1rem; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 6px; font-size: 0.85rem; color: #F87171;">
+                <i class="fa-solid fa-triangle-exclamation"></i> <strong>Important Note:</strong> We believe in transparency and responsible recruitment. We do not promise guaranteed selection or employment. Candidates are not required to pay any registration fee to NUCX Group.
             </div>
         </div>
     </section>
@@ -486,7 +166,7 @@
     <section id="apply">
         <div class="section-title">
             <h2>Candidate Job Application</h2>
-            <p>Fill out the form below to submit your details securely to our recruitment desk.</p>
+            <p>Submit your details for production, packing, helper or operator roles in Bawal.</p>
         </div>
         <div class="form-container">
             <form id="jobForm">
@@ -494,7 +174,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>Full Name *</label>
-                        <input type="text" name="fullName" required placeholder="e.g. Rahul Kumar">
+                        <input type="text" name="fullName" required placeholder="e.g. Vishal Verma">
                     </div>
                     <div class="form-group">
                         <label>Mobile Number (WhatsApp) *</label>
@@ -504,7 +184,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>Age *</label>
-                        <input type="number" name="age" required placeholder="e.g. 22">
+                        <input type="number" name="age" required placeholder="e.g. 21">
                     </div>
                     <div class="form-group">
                         <label>Gender *</label>
@@ -519,8 +199,8 @@
                     <div class="form-group">
                         <label>Qualification *</label>
                         <select name="qualification">
-                            <option value="8th Pass">8th Pass</option>
-                            <option value="10th / 12th">10th / 12th</option>
+                            <option value="10th Pass">10th Pass</option>
+                            <option value="12th Pass">12th Pass</option>
                             <option value="ITI / Diploma">ITI / Diploma</option>
                             <option value="Graduate">Graduate</option>
                         </select>
@@ -536,21 +216,21 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Preferred Job Category *</label>
+                        <label>Preferred Job Role *</label>
                         <select name="preferredRole" id="preferredRole">
-                            <option value="Production Line Operator">Production Line Operator</option>
-                            <option value="Assembly & Packing Staff">Assembly & Packing Staff</option>
-                            <option value="Helper & Loading Master">Helper & Loading Master</option>
+                            <option value="Production Line / Assembly">Production Line / Assembly</option>
+                            <option value="Packing & Loading Staff">Packing & Loading Staff</option>
                             <option value="Quality Checking Inspector">Quality Checking Inspector</option>
-                            <option value="General Worker">General Worker</option>
+                            <option value="Machine Operator (Skilled)">Machine Operator (Skilled)</option>
+                            <option value="Helper / General Worker">Helper / General Worker</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Current Location *</label>
-                        <input type="text" name="location" required placeholder="e.g. Bawal / Rewari / Neemrana">
+                        <input type="text" name="location" required placeholder="e.g. Bawal / Rewari">
                     </div>
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; padding: 1rem;">Submit Application</button>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; padding: 1rem;">Submit Application (Free)</button>
             </form>
         </div>
     </section>
@@ -567,7 +247,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>Agency / Company Name *</label>
-                        <input type="text" name="fullName" required placeholder="e.g. Apex Manpower Services">
+                        <input type="text" name="fullName" required placeholder="e.g. Vzixo Manpower">
                     </div>
                     <div class="form-group">
                         <label>Contact Person Mobile *</label>
@@ -576,12 +256,12 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Plant / Site Location *</label>
+                        <label>Site Location *</label>
                         <input type="text" name="location" required placeholder="e.g. Bawal Phase 2">
                     </div>
                     <div class="form-group">
-                        <label>Required Manpower Quantity *</label>
-                        <input type="text" name="qualification" required placeholder="e.g. 25 Operators / Helpers">
+                        <label>Required Manpower *</label>
+                        <input type="text" name="qualification" required placeholder="e.g. 30 Workers (Male/Female)">
                     </div>
                 </div>
                 <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; padding: 1rem;">Submit Partnership Request</button>
@@ -592,102 +272,20 @@
     <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="https://wa.me/919335085991" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://wa.me/919335085991?text=Hello%20NUCX%20Team,%20I%20am%20interested%20in%20industrial%20staffing." target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
             <a href="tel:+919335085991"><i class="fa-solid fa-phone"></i></a>
             <a href="mailto:contact@nucx.qzz.io"><i class="fa-solid fa-envelope"></i></a>
         </div>
         <p>&copy; 2026 NUCX Group – Bawal. All Rights Reserved. Industrial Staffing & Recruitment Platform.</p>
+        <p style="font-size: 0.75rem; margin-top: 0.5rem; color: #64748B;">No registration fee charged. Subject to employer verification.</p>
     </footer>
 
-    <!-- JavaScript Handling -->
-    <script>
-        // Set selected job in modal/form dropdown
-        function selectJob(jobTitle) {
-            const select = document.getElementById('preferredRole');
-            for(let i=0; i<select.options.length; i++) {
-                if(select.options[i].value === jobTitle) {
-                    select.selectedIndex = i;
-                    break;
-                }
-            }
-        }
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919335085991?text=Hello%20NUCX%20Team,%20I%20want%20to%20apply%20for%20a%20job%20in%20Bawal." target="_blank" class="floating-whatsapp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
-        // Google Apps Script Web App Endpoint (Replace with your deployed Web App URL)
-        const WEB_APP_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
-
-        // Form Submission Handlers
-        document.getElementById('jobForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitForm(this);
-        });
-
-        document.getElementById('partnerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitForm(this);
-        });
-
-        function submitForm(formElement) {
-            const formData = new FormData(formElement);
-            const data = {};
-            formData.forEach((value, key) => (data[key] = value));
-
-            // Show submitting status
-            const submitBtn = formElement.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerText;
-            submitBtn.innerText = "Submitting...";
-            submitBtn.disabled = true;
-
-            // If WebApp URL is configured, send via fetch
-            if (WEB_APP_URL !== "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE") {
-                fetch(WEB_APP_URL, {
-                    method: "POST",
-                    mode: "no-cors",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(data)
-                }).then(() => {
-                    alert("Application submitted successfully! Our team will contact you shortly.");
-                    formElement.reset();
-                    submitBtn.innerText = originalText;
-                    submitBtn.disabled = false;
-                }).catch(err => {
-                    alert("Submission error. Please connect directly via WhatsApp.");
-                    submitBtn.innerText = originalText;
-                    submitBtn.disabled = false;
-                });
-            } else {
-                // Fallback simulation if script URL is pending
-                setTimeout(() => {
-                    alert("Thank you! Your details have been received successfully. Redirecting to WhatsApp...");
-                    window.open(`https://wa.me/919335085991?text=Hello%20NUCX,%20I%20have%20submitted%20my%20details%20for%20${encodeURIComponent(data.preferredRole || 'Manpower Partnership')}.`, '_blank');
-                    formElement.reset();
-                    submitBtn.innerText = originalText;
-                    submitBtn.disabled = false;
-                }, 1000);
-            }
-        }
-
-        // Language Switcher Toggle (Simple EN/HI simulation)
-        let isHindi = false;
-        document.getElementById('langToggle').addEventListener('click', function() {
-            isHindi = !isHindi;
-            if(isHindi) {
-                document.getElementById('heroTitle').innerText = "बवाल औद्योगिक क्षेत्र में रोजगार और मैनपावर समाधान";
-                document.getElementById('heroDesc').innerText = "नुकएक्स ग्रुप - बावल: जॉब सीकर और इंडस्ट्रियल कंपनियों के लिए सबसे भरोसेमंद रिक्रूटमेंट प्लेटफॉर्म।";
-                document.getElementById('btnFindJobs').innerText = "नौकरी खोजें";
-                document.getElementById('btnPartner').innerText = "पार्टनर बनें";
-                document.getElementById('jobsHeading').innerText = "वर्तमान नौकरियां";
-                document.getElementById('jobsSub').innerText = "बावल की औद्योगिक इकाइयों और फैक्ट्रियों में सत्यापित रिक्तियां।";
-                this.innerText = "EN / HI";
-            } else {
-                document.getElementById('heroTitle').innerText = "Connecting Talent With Opportunities";
-                document.getElementById('heroDesc').innerText = "Your premier manpower and recruitment connection for industrial job opportunities, verified staffing solutions, and factory placement in Bawal, Haryana.";
-                document.getElementById('btnFindJobs').innerText = "Find a Job";
-                document.getElementById('btnPartner').innerText = "Partner With Us";
-                document.getElementById('jobsHeading').innerText = "Current Job Openings";
-                document.getElementById('jobsSub').innerText = "Verified vacancies across industrial units and manufacturing plants in Bawal.";
-                this.innerText = "HI / EN";
-            }
-        });
-    </script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
 </body>
 </html>
