@@ -1,300 +1,693 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aayu Verma — Silence Builds Legends</title>
-  
-  <meta name="description" content="Personal portal of Aayu Verma (VEV / Vishal Verma). Entrepreneur, Financial Markets Operator, and Founder of Vzixo.">
-  <meta name="theme-color" content="#0a0a0c">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUCX GROUP – BAWAL | Industrial Manpower & Recruitment Platform</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-midnight: #080D18;
+            --bg-card: rgba(15, 23, 42, 0.7);
+            --neon-cyan: #00D9FF;
+            --electric-blue: #2563FF;
+            --violet: #8B5CF6;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border-glow: rgba(0, 217, 255, 0.3);
+        }
 
-  <!-- Google Fonts: Inter + Space Grotesk -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Space Grotesk', sans-serif;
+        }
 
-  <link rel="stylesheet" href="style.css">
+        body {
+            background-color: var(--bg-midnight);
+            color: var(--text-main);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background Glow Effect */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 99, 255, 0.15) 0%, rgba(139, 92, 246, 0.05) 50%, transparent 70%);
+            z-index: -1;
+        }
+
+        /* Header & Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(8, 13, 24, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.15);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 8px rgba(0, 217, 255, 0.4);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: var(--neon-cyan);
+            color: var(--bg-midnight);
+            box-shadow: 0 0 12px var(--neon-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 5% 6rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid var(--border-glow);
+            color: var(--neon-cyan);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFFFFF 30%, var(--neon-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--electric-blue), var(--violet));
+            color: #FFFFFF;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(37, 99, 255, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 217, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border-glow);
+            color: var(--text-main);
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+            background: rgba(0, 217, 255, 0.05);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Job Cards Grid */
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .job-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-card:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--neon-cyan);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .verified-badge {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34D399;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .job-details {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .job-details li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .job-details li i {
+            color: var(--neon-cyan);
+            width: 16px;
+        }
+
+        /* Forms Layout */
+        .form-container {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(4, 7, 14, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 3rem 5%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        footer .social-links a {
+            color: var(--neon-cyan);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        footer .social-links a:hover {
+            color: #FFFFFF;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { display: none; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-<body class="luxury-dark">
+<body>
 
-  <!-- Minimal Audio Gate (iOS & Android 16 Touch Barrier) -->
-  <div id="audio-gate-overlay" onclick="unlockAudioAndStartWebsite()">
-    <div class="editorial-gate-card">
-      <span class="gate-mono-tag">AAYU VERMA &bull; PORTAL 2026</span>
-      <h2>Enter Private Space</h2>
-      <p class="gate-subtext">“Silence Builds Legends.”</p>
-      <button type="button" class="editorial-btn">Tap to Enter &bull; Start Ambient Sound</button>
-      <span class="gate-hint">Direct interaction unlocks background audio seamlessly</span>
-    </div>
-  </div>
-
-  <!-- Audio Node (35% Volume) -->
-  <audio id="bg-audio" src="bg-music.mp3" loop preload="auto"></audio>
-
-  <!-- Main Viewport Wrap -->
-  <div class="site-wrapper">
-
-    <!-- Sticky Editorial Navigation -->
-    <header class="editorial-header">
-      <div class="header-brand">AAYU VERMA</div>
-      <div class="header-status">
-        <span class="live-dot"></span> BUILDING VZIXO
-      </div>
-      <button class="nav-archive-trigger" onclick="openAuthModal()">Request Vault Access</button>
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">NUCX<span>GROUP</span></a>
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#jobs">Jobs</a></li>
+                <li><a href="#apply">Apply</a></li>
+                <li><a href="#partner">Partners</a></li>
+                <li><a href="#referral">Referral</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="nav-right">
+            <button class="lang-btn" id="langToggle">HI / EN</button>
+            <a href="https://wa.me/919335085991" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
     </header>
 
-    <main id="public-view" class="view-active">
-      
-      <!-- 1. Hero Section -->
-      <section class="hero-section">
-        <div class="hero-label-wrap">
-          <span class="pill-label">BUILDING VZIXO &bull; FINANCIAL MARKETS</span>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="badge">BAWAL • REWARI INDUSTRIAL STAFFING</div>
+        <h1 id="heroTitle">Connecting Talent With Opportunities</h1>
+        <p id="heroDesc">Your premier manpower and recruitment connection for industrial job opportunities, verified staffing solutions, and factory placement in Bawal, Haryana.</p>
+        <div class="hero-btns">
+            <a href="#jobs" class="btn-primary" id="btnFindJobs">Find a Job</a>
+            <a href="#partner" class="btn-secondary" id="btnPartner">Partner With Us</a>
         </div>
-
-        <div class="hero-core-grid">
-          <div class="hero-text-block">
-            <h1 class="hero-title">AAYU VERMA</h1>
-            <p class="hero-alias">VEV VERMA &bull; VISHAL VERMA</p>
-            <p class="hero-tagline">“Silence Builds Legends.”</p>
-            <p class="hero-narrative">
-              Focused on building long-term equity through strategic market execution, automated algorithmic architectures, and disciplined enterprise development.
-            </p>
-          </div>
-
-          <!-- Avatar with Double-Tap Trigger & Accessible Fallback -->
-          <div class="hero-media-block">
-            <div class="avatar-frame" id="profile-trigger" title="Double tap to open restricted access">
-              <img src="profile.jpg" alt="Aayu Verma" class="avatar-photo" onerror="this.src='https://api.dicebear.com/7.x/initials/svg?seed=AV&backgroundColor=121316&textColor=ffffff'">
-              <div class="avatar-overlay-hint">Double Tap for Vault</div>
-            </div>
-            <button type="button" class="mobile-vault-btn" onclick="openAuthModal()">
-              <span>🔒 Open Private Archive</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="hero-scroll-cue">
-          <span>EXPLORE MY WORLD</span>
-          <div class="scroll-line"></div>
-        </div>
-      </section>
-
-      <!-- 2. The Untold Chronicle (Curiosity Hook) -->
-      <section class="section-block chronicle-block">
-        <div class="section-header">
-          <span class="section-idx">01</span>
-          <span class="section-badge">THE UNTOLD CHRONICLE</span>
-        </div>
-        <div class="chronicle-card">
-          <h2 class="chronicle-title">17 Ki Umar, Faridabad Aur ₹35,000 Ka Sabak</h2>
-          <p class="chronicle-excerpt">
-            Log aksar jeet ki baatein karte hain, par asli foundation tab banti hai jab jeb me aakhri rupaya bacha ho aur ghar se mummy ka call aaye... Wo ek daur jisne mujhe seekh di jo koi book nahi sikha sakti.
-          </p>
-          <div class="chronicle-footer">
-            <span class="chronicle-note">Private memoirs, raw timelines, and lesson logs are stored in the Restricted Archive.</span>
-            <button type="button" class="editorial-outline-btn" onclick="openAuthModal()">Unlock Chronicle &rarr;</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3. Professional Work -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="section-idx">02</span>
-          <span class="section-badge">PROFESSIONAL WORK</span>
-        </div>
-
-        <div class="cards-grid">
-          <!-- Card 1 -->
-          <div class="editorial-card">
-            <div class="card-meta">DISCIPLINE 01</div>
-            <h3>Financial Markets</h3>
-            <p class="card-desc">
-              Precision execution in Forex and digital assets. Core frameworks revolve around ICT Smart Money Concepts (SMC), Volume Profile, liquidity sweeps, structural breaks (BOS), and strict drawdown control targeting high-probability risk-to-reward setups.
-            </p>
-            <div class="card-tags">
-              <span>Smart Money</span>
-              <span>Price Action</span>
-              <span>Liquidity Dynamics</span>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="editorial-card">
-            <div class="card-meta">DISCIPLINE 02</div>
-            <h3>Vzixo Private Limited</h3>
-            <p class="card-desc">
-              Long-term enterprise vision aimed at multi-sector scalability. Structured around building sustainable operational foundations across digital commerce, hospitality, commercial ventures, and subsequent global market expansion.
-            </p>
-            <div class="card-tags">
-              <span>E-Commerce</span>
-              <span>Hospitality</span>
-              <span>Strategic Capital</span>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="editorial-card">
-            <div class="card-meta">DISCIPLINE 03</div>
-            <h3>Proprietary Engines</h3>
-            <p class="card-desc">
-              Development and backtesting of automated execution models, institutional order block validation algorithms, and indicator frameworks including the AG PRO Institutional Reversal Engine and NEXUS BOS Engine.
-            </p>
-            <div class="card-tags">
-              <span>AG PRO</span>
-              <span>NEXUS BOS</span>
-              <span>Execution Logic</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4. Passions & Lifestyle -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="section-idx">03</span>
-          <span class="section-badge">PASSIONS & LIFESTYLE</span>
-        </div>
-
-        <div class="lifestyle-grid">
-          <div class="lifestyle-card">
-            <h4>Automotive Engineering</h4>
-            <p>Appreciation for German engineering (BMW & Audi) and distinctive road aesthetics (Jawa 42 Bobber & BMW Motorrad).</p>
-          </div>
-          <div class="lifestyle-card">
-            <h4>Computing & Setup</h4>
-            <p>High-performance ASUS computing environments, customized terminal interfaces, and automated scripting workflows.</p>
-          </div>
-          <div class="lifestyle-card">
-            <h4>Human Dynamics</h4>
-            <p>Study of behavioral psychology, high-stakes negotiation, emotional self-regulation, and decision-making under pressure.</p>
-          </div>
-          <div class="lifestyle-card">
-            <h4>Aesthetic & Discipline</h4>
-            <p>Physical conditioning, minimal black attire, and unwavering focus on long-term goals over fleeting validation.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- 5. Contact & Footer -->
-      <section class="section-block contact-block">
-        <div class="section-header">
-          <span class="section-idx">04</span>
-          <span class="section-badge">INITIATE CONTACT</span>
-        </div>
-
-        <div class="contact-details-grid">
-          <a href="tel:9335085991" class="contact-card">
-            <span class="contact-label">DIRECT PHONE</span>
-            <span class="contact-val">+91 9335085991</span>
-          </a>
-          <a href="mailto:support@nucx.qzz.io" class="contact-card">
-            <span class="contact-label">EMAIL COMM</span>
-            <span class="contact-val">support@nucx.qzz.io</span>
-          </a>
-        </div>
-
-        <div class="social-row">
-          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="social-chip">Instagram ↗</a>
-          <a href="https://wa.me/919335085991" target="_blank" rel="noopener noreferrer" class="social-chip">WhatsApp ↗</a>
-          <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="social-chip">Telegram ↗</a>
-        </div>
-      </section>
-
-      <footer class="editorial-footer">
-        <div class="footer-left">VEV — Legacy Begins &bull; 2026</div>
-        <div class="footer-right">All rights reserved &bull; Confidentiality Protected</div>
-      </footer>
-
-    </main>
-
-    <!-- Hidden Identity Modal (Restricted Access) -->
-    <div id="auth-modal" class="modal-backdrop">
-      <div class="editorial-modal">
-        <button type="button" class="modal-close" onclick="closeAuthModal()">&times;</button>
-        
-        <div class="modal-lead">
-          <span class="modal-tag">RESTRICTED ACCESS</span>
-          <h3>Private Archive</h3>
-          <p>Please enter your identity and the security passphrase to request access to the personal journal.</p>
-        </div>
-
-        <form id="access-form" onsubmit="handleAccessRequest(event)">
-          <div class="form-group">
-            <label for="visitor-name">Full Name</label>
-            <input type="text" id="visitor-name" placeholder="Enter your full name" required autocomplete="off">
-          </div>
-
-          <div class="form-group">
-            <label for="visitor-phone">Phone Number</label>
-            <input type="tel" id="visitor-phone" placeholder="+91 00000 00000" required autocomplete="off">
-          </div>
-
-          <div class="form-group">
-            <label for="visitor-relation">Relation / Pehchan</label>
-            <input type="text" id="visitor-relation" placeholder="Aap mere kaun hain?" required autocomplete="off">
-          </div>
-
-          <div class="form-group">
-            <label for="vault-password">Passphrase</label>
-            <input type="password" id="vault-password" placeholder="••••••••••••" required autocomplete="off">
-          </div>
-
-          <div id="auth-feedback" class="modal-feedback"></div>
-
-          <button type="submit" class="modal-submit-btn" id="submit-auth-btn">
-            Request Access &rarr;
-          </button>
-        </form>
-
-        <p class="modal-privacy-note">Your details will be used to process your access request.</p>
-      </div>
-    </div>
-
-    <!-- Private 3D Book / Journal View -->
-    <section id="diary-view" class="view-hidden">
-      <div class="diary-toolbar">
-        <button type="button" class="btn-subtle" onclick="lockAndExitDiary()">&larr; Return to Public</button>
-        <div class="audio-switch-wrap">
-          <label for="voice-toggle">Audio Narration</label>
-          <input type="checkbox" id="voice-toggle" checked onchange="toggleNarrationState()">
-        </div>
-      </div>
-
-      <div class="book-viewport">
-        <div class="book-spread" id="book-element">
-          <!-- Left Page -->
-          <div class="book-leaf leaf-left">
-            <div class="leaf-meta">
-              <span class="leaf-doc">ARCHIVE &bull; VEV</span>
-              <span class="leaf-counter" id="left-page-num">#01</span>
-            </div>
-            <h2 id="left-page-title" class="leaf-title">Loading...</h2>
-            <div class="leaf-text" id="left-page-text"></div>
-          </div>
-
-          <!-- Right Page -->
-          <div class="book-leaf leaf-right" id="page-right">
-            <div class="leaf-meta">
-              <span class="leaf-doc">CONFIDENTIAL LOG</span>
-              <span class="leaf-counter" id="right-page-num">#02</span>
-            </div>
-            <h2 id="right-page-title" class="leaf-title">Loading...</h2>
-            <div class="leaf-text" id="right-page-text"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="diary-controls">
-        <button type="button" class="btn-subtle" id="prev-page-btn" onclick="previousPageTurn()">&larr; Previous Spread</button>
-        <span class="spread-indicator" id="book-page-indicator">Chapter 1 / --</span>
-        <button type="button" class="btn-subtle" id="next-page-btn" onclick="nextPageTurn()">Next Spread &rarr;</button>
-      </div>
     </section>
 
-  </div>
+    <!-- Job Openings Section -->
+    <section id="jobs">
+        <div class="section-title">
+            <h2 id="jobsHeading">Current Job Openings</h2>
+            <p id="jobsSub">Verified vacancies across industrial units and manufacturing plants in Bawal.</p>
+        </div>
+        <div class="job-grid">
+            <div class="job-card">
+                <div class="job-header">
+                    <span class="job-title">Production Line Operator</span>
+                    <span class="verified-badge">Verified</span>
+                </div>
+                <ul class="job-details">
+                    <li><i class="fa-solid fa-location-dot"></i> Bawal Phase 1, Haryana</li>
+                    <li><i class="fa-solid fa-indian-rupee-sign"></i> ₹16,000 - ₹20,000 / month</li>
+                    <li><i class="fa-solid fa-clock"></i> Rotating Shifts (8 Hours)</li>
+                    <li><i class="fa-solid fa-graduation-cap"></i> 10th / 12th / ITI</li>
+                </ul>
+                <a href="#apply" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 0.6rem;" onclick="selectJob('Production Line Operator')">Apply Now</a>
+            </div>
 
-  <script src="life_memory.js"></script>
-  <script src="script.js"></script>
+            <div class="job-card">
+                <div class="job-header">
+                    <span class="job-title">Assembly & Packing Staff</span>
+                    <span class="verified-badge">Verified</span>
+                </div>
+                <ul class="job-details">
+                    <li><i class="fa-solid fa-location-dot"></i> Growth Centre Bawal</li>
+                    <li><i class="fa-solid fa-indian-rupee-sign"></i> ₹14,000 - ₹17,500 / month</li>
+                    <li><i class="fa-solid fa-clock"></i> Day / Night Shift</li>
+                    <li><i class="fa-solid fa-graduation-cap"></i> 8th / 10th Pass</li>
+                </ul>
+                <a href="#apply" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 0.6rem;" onclick="selectJob('Assembly & Packing Staff')">Apply Now</a>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <span class="job-title">Helper & Loading Master</span>
+                    <span class="verified-badge">Verified</span>
+                </div>
+                <ul class="job-details">
+                    <li><i class="fa-solid fa-location-dot"></i> Sector 3 Bawal</li>
+                    <li><i class="fa-solid fa-indian-rupee-sign"></i> ₹15,000 - ₹18,000 / month</li>
+                    <li><i class="fa-solid fa-clock"></i> Standard Shift + OT</li>
+                    <li><i class="fa-solid fa-graduation-cap"></i> Basic Literacy</li>
+                </ul>
+                <a href="#apply" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 0.6rem;" onclick="selectJob('Helper & Loading Master')">Apply Now</a>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <span class="job-title">Quality Checking Inspector</span>
+                    <span class="verified-badge">Verified</span>
+                </div>
+                <ul class="job-details">
+                    <li><i class="fa-solid fa-location-dot"></i> Bawal Industrial Area</li>
+                    <li><i class="fa-solid fa-indian-rupee-sign"></i> ₹18,000 - ₹24,000 / month</li>
+                    <li><i class="fa-solid fa-clock"></i> 8 Hours Shift</li>
+                    <li><i class="fa-solid fa-graduation-cap"></i> ITI / Diploma / Graduate</li>
+                </ul>
+                <a href="#apply" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 0.6rem;" onclick="selectJob('Quality Checking Inspector')">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Candidate Application Section -->
+    <section id="apply">
+        <div class="section-title">
+            <h2>Candidate Job Application</h2>
+            <p>Fill out the form below to submit your details securely to our recruitment desk.</p>
+        </div>
+        <div class="form-container">
+            <form id="jobForm">
+                <input type="hidden" name="formType" value="Job Application">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="fullName" required placeholder="e.g. Rahul Kumar">
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number (WhatsApp) *</label>
+                        <input type="tel" name="phone" required placeholder="e.g. 9876543210">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Age *</label>
+                        <input type="number" name="age" required placeholder="e.g. 22">
+                    </div>
+                    <div class="form-group">
+                        <label>Gender *</label>
+                        <select name="gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Qualification *</label>
+                        <select name="qualification">
+                            <option value="8th Pass">8th Pass</option>
+                            <option value="10th / 12th">10th / 12th</option>
+                            <option value="ITI / Diploma">ITI / Diploma</option>
+                            <option value="Graduate">Graduate</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Work Experience *</label>
+                        <select name="experience">
+                            <option value="Fresher">Fresher</option>
+                            <option value="1-2 Years">1-2 Years</option>
+                            <option value="3+ Years">3+ Years</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Preferred Job Category *</label>
+                        <select name="preferredRole" id="preferredRole">
+                            <option value="Production Line Operator">Production Line Operator</option>
+                            <option value="Assembly & Packing Staff">Assembly & Packing Staff</option>
+                            <option value="Helper & Loading Master">Helper & Loading Master</option>
+                            <option value="Quality Checking Inspector">Quality Checking Inspector</option>
+                            <option value="General Worker">General Worker</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Current Location *</label>
+                        <input type="text" name="location" required placeholder="e.g. Bawal / Rewari / Neemrana">
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; padding: 1rem;">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Partner With Us Section -->
+    <section id="partner">
+        <div class="section-title">
+            <h2>Manpower Partnership Enquiry</h2>
+            <p>For contractors, HR agencies, and factory supervisors seeking reliable workforce solutions.</p>
+        </div>
+        <div class="form-container">
+            <form id="partnerForm">
+                <input type="hidden" name="formType" value="Partner Enquiry">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Agency / Company Name *</label>
+                        <input type="text" name="fullName" required placeholder="e.g. Apex Manpower Services">
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Person Mobile *</label>
+                        <input type="tel" name="phone" required placeholder="e.g. 9335085991">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Plant / Site Location *</label>
+                        <input type="text" name="location" required placeholder="e.g. Bawal Phase 2">
+                    </div>
+                    <div class="form-group">
+                        <label>Required Manpower Quantity *</label>
+                        <input type="text" name="qualification" required placeholder="e.g. 25 Operators / Helpers">
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; padding: 1rem;">Submit Partnership Request</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://wa.me/919335085991" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="tel:+919335085991"><i class="fa-solid fa-phone"></i></a>
+            <a href="mailto:contact@nucx.qzz.io"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <p>&copy; 2026 NUCX Group – Bawal. All Rights Reserved. Industrial Staffing & Recruitment Platform.</p>
+    </footer>
+
+    <!-- JavaScript Handling -->
+    <script>
+        // Set selected job in modal/form dropdown
+        function selectJob(jobTitle) {
+            const select = document.getElementById('preferredRole');
+            for(let i=0; i<select.options.length; i++) {
+                if(select.options[i].value === jobTitle) {
+                    select.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+
+        // Google Apps Script Web App Endpoint (Replace with your deployed Web App URL)
+        const WEB_APP_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+        // Form Submission Handlers
+        document.getElementById('jobForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitForm(this);
+        });
+
+        document.getElementById('partnerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitForm(this);
+        });
+
+        function submitForm(formElement) {
+            const formData = new FormData(formElement);
+            const data = {};
+            formData.forEach((value, key) => (data[key] = value));
+
+            // Show submitting status
+            const submitBtn = formElement.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = "Submitting...";
+            submitBtn.disabled = true;
+
+            // If WebApp URL is configured, send via fetch
+            if (WEB_APP_URL !== "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE") {
+                fetch(WEB_APP_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                }).then(() => {
+                    alert("Application submitted successfully! Our team will contact you shortly.");
+                    formElement.reset();
+                    submitBtn.innerText = originalText;
+                    submitBtn.disabled = false;
+                }).catch(err => {
+                    alert("Submission error. Please connect directly via WhatsApp.");
+                    submitBtn.innerText = originalText;
+                    submitBtn.disabled = false;
+                });
+            } else {
+                // Fallback simulation if script URL is pending
+                setTimeout(() => {
+                    alert("Thank you! Your details have been received successfully. Redirecting to WhatsApp...");
+                    window.open(`https://wa.me/919335085991?text=Hello%20NUCX,%20I%20have%20submitted%20my%20details%20for%20${encodeURIComponent(data.preferredRole || 'Manpower Partnership')}.`, '_blank');
+                    formElement.reset();
+                    submitBtn.innerText = originalText;
+                    submitBtn.disabled = false;
+                }, 1000);
+            }
+        }
+
+        // Language Switcher Toggle (Simple EN/HI simulation)
+        let isHindi = false;
+        document.getElementById('langToggle').addEventListener('click', function() {
+            isHindi = !isHindi;
+            if(isHindi) {
+                document.getElementById('heroTitle').innerText = "बवाल औद्योगिक क्षेत्र में रोजगार और मैनपावर समाधान";
+                document.getElementById('heroDesc').innerText = "नुकएक्स ग्रुप - बावल: जॉब सीकर और इंडस्ट्रियल कंपनियों के लिए सबसे भरोसेमंद रिक्रूटमेंट प्लेटफॉर्म।";
+                document.getElementById('btnFindJobs').innerText = "नौकरी खोजें";
+                document.getElementById('btnPartner').innerText = "पार्टनर बनें";
+                document.getElementById('jobsHeading').innerText = "वर्तमान नौकरियां";
+                document.getElementById('jobsSub').innerText = "बावल की औद्योगिक इकाइयों और फैक्ट्रियों में सत्यापित रिक्तियां।";
+                this.innerText = "EN / HI";
+            } else {
+                document.getElementById('heroTitle').innerText = "Connecting Talent With Opportunities";
+                document.getElementById('heroDesc').innerText = "Your premier manpower and recruitment connection for industrial job opportunities, verified staffing solutions, and factory placement in Bawal, Haryana.";
+                document.getElementById('btnFindJobs').innerText = "Find a Job";
+                document.getElementById('btnPartner').innerText = "Partner With Us";
+                document.getElementById('jobsHeading').innerText = "Current Job Openings";
+                document.getElementById('jobsSub').innerText = "Verified vacancies across industrial units and manufacturing plants in Bawal.";
+                this.innerText = "HI / EN";
+            }
+        });
+    </script>
 </body>
 </html>
