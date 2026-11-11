@@ -14,7 +14,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Space Grotesk', sans-serif;
-    max-width: 100%;
 }
 
 html, body {
@@ -23,6 +22,7 @@ html, body {
     background-color: var(--bg-midnight);
     color: var(--text-main);
     position: relative;
+    scroll-behavior: smooth;
 }
 
 body::before {
@@ -36,8 +36,10 @@ body::before {
     height: 400px;
     background: radial-gradient(circle, rgba(37, 99, 255, 0.15) 0%, rgba(139, 92, 246, 0.05) 50%, transparent 70%);
     z-index: -1;
+    pointer-events: none;
 }
 
+/* Header */
 header {
     position: fixed;
     top: 0;
@@ -101,14 +103,23 @@ nav a:hover, nav a.active {
     cursor: pointer;
     font-weight: 600;
     font-size: 0.7rem;
+    transition: 0.2s;
+}
+
+.lang-btn:hover {
+    background: rgba(0, 217, 255, 0.1);
 }
 
 .whatsapp-nav-btn {
     padding: 0.35rem 0.65rem;
     font-size: 0.8rem;
     border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Hero Section */
 .hero {
     padding: 6.5rem 4% 2.5rem;
     text-align: center;
@@ -165,6 +176,7 @@ nav a:hover, nav a.active {
     box-shadow: 0 4px 15px rgba(37, 99, 255, 0.3);
     font-size: 0.85rem;
     transition: 0.2s;
+    display: inline-block;
 }
 
 .btn-primary:hover {
@@ -182,8 +194,15 @@ nav a:hover, nav a.active {
     text-decoration: none;
     cursor: pointer;
     font-size: 0.85rem;
+    transition: 0.2s;
+    display: inline-block;
 }
 
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Sections */
 section {
     padding: 2.5rem 4%;
     max-width: 1200px;
@@ -212,10 +231,32 @@ section {
     font-size: 0.82rem;
 }
 
+.text-center {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.trust-icon {
+    font-size: 2rem;
+    color: var(--neon-cyan);
+    margin-bottom: 0.8rem;
+}
+
+.trust-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.trust-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Job Cards & Work Images */
 .job-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
 }
 
 .job-card {
@@ -226,6 +267,14 @@ section {
     backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.job-card:hover {
+    border-color: rgba(0, 217, 255, 0.25);
+    transform: translateY(-2px);
 }
 
 .job-card::before {
@@ -236,6 +285,26 @@ section {
     width: 3px;
     height: 100%;
     background: var(--neon-cyan);
+}
+
+.job-img-box {
+    width: 100%;
+    height: 140px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.job-work-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.job-card:hover .job-work-img {
+    transform: scale(1.05);
 }
 
 .job-header {
@@ -255,7 +324,7 @@ section {
     background: rgba(16, 185, 129, 0.15);
     color: #34D399;
     font-size: 0.6rem;
-    padding: 0.15rem 0.35rem;
+    padding: 0.15rem 0.45rem;
     border-radius: 4px;
     font-weight: 600;
 }
@@ -263,6 +332,7 @@ section {
 .job-details {
     list-style: none;
     margin-bottom: 0.8rem;
+    flex-grow: 1;
 }
 
 .job-details li {
@@ -277,6 +347,33 @@ section {
 .job-details li i {
     color: var(--neon-cyan);
     width: 14px;
+    text-align: center;
+}
+
+.job-perk {
+    font-size: 0.8rem;
+    color: #34D399;
+    margin-bottom: 1rem;
+}
+
+.job-apply-btn {
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding: 0.6rem;
+}
+
+/* About Section */
+.about-section {
+    background: rgba(15, 23, 42, 0.4);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.about-box {
+    max-width: 900px;
+    line-height: 1.7;
+    color: var(--text-muted);
 }
 
 .about-grid {
@@ -286,6 +383,40 @@ section {
     margin-top: 1.2rem;
 }
 
+.about-card-item {
+    background: rgba(0,0,0,0.3);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.about-card-item h4 {
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.about-card-item p {
+    font-size: 0.9rem;
+}
+
+.card-cyan {
+    border-left: 3px solid var(--neon-cyan);
+}
+
+.card-blue {
+    border-left: 3px solid var(--electric-blue);
+}
+
+.important-note {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #F87171;
+}
+
+/* Forms */
 .form-container {
     background: var(--bg-card);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -322,21 +453,29 @@ input, select, textarea {
     padding: 0.6rem 0.8rem;
     color: var(--text-main);
     font-size: 0.85rem;
+    transition: border-color 0.2s ease;
 }
 
 input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--neon-cyan);
+    box-shadow: 0 0 8px rgba(0, 217, 255, 0.2);
 }
 
-/* Professional Modal Popup Styles */
+.form-submit-btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+/* Modal Popup */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(4, 7, 14, 0.8);
+    background: rgba(4, 7, 14, 0.85);
     backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
@@ -345,6 +484,7 @@ input:focus, select:focus, textarea:focus {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    padding: 1rem;
 }
 
 .modal-overlay.active {
@@ -353,14 +493,15 @@ input:focus, select:focus, textarea:focus {
 }
 
 .modal-card {
+    position: relative;
     background: #0F172A;
     border: 1px solid var(--neon-cyan);
     border-radius: 16px;
-    padding: 2rem;
+    padding: 2.2rem 1.75rem 1.75rem;
     max-width: 400px;
-    width: 90%;
+    width: 100%;
     text-align: center;
-    box-shadow: 0 10px 40px rgba(0, 217, 255, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 217, 255, 0.25);
     transform: translateY(20px);
     transition: transform 0.3s ease;
 }
@@ -369,26 +510,54 @@ input:focus, select:focus, textarea:focus {
     transform: translateY(0);
 }
 
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+    color: var(--neon-cyan);
+}
+
 .modal-icon {
     font-size: 3rem;
     color: #34D399;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .modal-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-family: 'Rajdhani', sans-serif;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     color: var(--text-main);
 }
 
 .modal-card p {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.3rem;
     line-height: 1.5;
 }
 
+.whatsapp-modal-btn {
+    background: #25D366;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.close-modal-btn {
+    width: 100%;
+}
+
+/* Footer */
 footer {
     background: rgba(4, 7, 14, 0.95);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -408,31 +577,92 @@ footer .social-links {
 footer .social-links a {
     color: var(--neon-cyan);
     font-size: 1.1rem;
+    transition: opacity 0.2s;
 }
 
+footer .social-links a:hover {
+    opacity: 0.8;
+}
+
+.footer-contact {
+    margin-bottom: 0.5rem;
+    color: var(--neon-cyan);
+}
+
+.footer-disclaimer {
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    color: #64748B;
+}
+
+/* Floating WhatsApp */
 .floating-whatsapp {
     position: fixed;
-    bottom: 18px;
-    right: 18px;
+    bottom: 20px;
+    right: 20px;
     background: #25D366;
     color: #FFFFFF;
-    width: 45px;
-    height: 45px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
     z-index: 9999;
+    text-decoration: none;
+    transition: transform 0.2s ease;
 }
 
+.floating-whatsapp:hover {
+    transform: scale(1.08);
+}
+
+/* Responsive Mobile Rules */
 @media (max-width: 600px) {
-    nav { display: none; }
-    .hero { padding: 5.5rem 3% 2rem; }
-    .hero h1 { font-size: 1.85rem; }
-    .hero-btns { flex-direction: column; gap: 0.6rem; }
-    .btn-primary, .btn-secondary { width: 100%; text-align: center; }
-    .job-grid, .form-row, .about-grid { grid-template-columns: 1fr; gap: 0; }
-    section { padding: 2rem 3%; }
+    nav {
+        display: none;
+    }
+
+    .hero {
+        padding: 5.5rem 4% 2rem;
+    }
+
+    .hero h1 {
+        font-size: 1.85rem;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .job-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    section {
+        padding: 2rem 4%;
+    }
+
+    .form-container {
+        padding: 1rem;
+    }
 }
