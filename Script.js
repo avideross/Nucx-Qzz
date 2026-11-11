@@ -42,13 +42,13 @@ function processSubmission(formElement, type) {
         const role = formData.get('preferredRole');
         const loc = formData.get('location');
 
-        telegramMsg = `🚨 NEW JOB APPLICATION (NUCX)\n\n` +
-                      `👤 Name: ${name}\n` +
-                      `📞 Phone: ${phone}\n` +
-                      `🎂 Age/Gender: ${age} / ${gender}\n` +
-                      `🎓 Qual/Exp: ${qual} (${exp})\n` +
-                      `🏭 Role: ${role}\n` +
-                      `📍 Location: ${loc}`;
+        telegramMsg = `🚨 *NEW JOB APPLICATION (NUCX)*\n\n` +
+                      `👤 *Name:* ${name}\n` +
+                      `📞 *Phone:* ${phone}\n` +
+                      `🎂 *Age/Gender:* ${age} / ${gender}\n` +
+                      `🎓 *Qual/Exp:* ${qual} (${exp})\n` +
+                      `🏭 *Role:* ${role}\n` +
+                      `📍 *Location:* ${loc}`;
 
         whatsappMsg = `Hello NUCX Group, I have submitted my job application.\n\n*Name:* ${name}\n*Role:* ${role}\n*Phone:* ${phone}\n*Location:* ${loc}`;
     } else {
@@ -57,38 +57,65 @@ function processSubmission(formElement, type) {
         const loc = formData.get('location');
         const manpower = formData.get('qualification');
 
-        telegramMsg = `🤝 NEW PARTNER ENQUIRY (NUCX)\n\n` +
-                      `🏢 Agency: ${agency}\n` +
-                      `📞 Phone: ${phone}\n` +
-                      `📍 Location: ${loc}\n` +
-                      `👥 Manpower Needed: ${manpower}`;
+        telegramMsg = `🤝 *NEW PARTNER ENQUIRY (NUCX)*\n\n` +
+                      `🏢 *Agency:* ${agency}\n` +
+                      `📞 *Phone:* ${phone}\n` +
+                      `📍 *Location:* ${loc}\n` +
+                      `👥 *Manpower Needed:* ${manpower}`;
 
         whatsappMsg = `Hello NUCX Group, I want to discuss a Manpower Partnership.\n\n*Agency:* ${agency}\n*Phone:* ${phone}\n*Manpower:* ${manpower}`;
     }
 
     const submitBtn = formElement.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerText;
-    submitBtn.innerText = "Sending & Connecting...";
+    submitBtn.innerText = "Processing Securely...";
     submitBtn.disabled = true;
 
-    // Send direct Telegram Notification via API
+    // Send direct Telegram Notification via API in background
     fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             chat_id: CHAT_ID,
-            text: telegramMsg
+            text: telegramMsg,
+            parse_mode: "Markdown"
         })
-    }).finally(() => {
+    }).then(response => {
+        return response.json();
+    }).then(data => {
         // Reset form & button
         formElement.reset();
         submitBtn.innerText = originalText;
         submitBtn.disabled = false;
 
-        // Open WhatsApp with pre-filled routing message
+        // Show Professional Success Modal
+        showModal(whatsappMsg);
+    }).catch(err => {
+        // Fallback even if network hiccups
+        formElement.reset();
+        submitBtn.innerText = originalText;
+        submitBtn.disabled = false;
+        showModal(whatsappMsg);
+    });
+}
+
+function showModal(whatsappMsg) {
+    const modal = document.getElementById('successModal');
+    const whatsappBtn = document.getElementById('whatsappRedirectBtn');
+    
+    modal.classList.add('active');
+
+    // Configure WhatsApp routing button inside modal
+    whatsappBtn.onclick = function() {
         const whatsappUrl = `https://wa.me/919335085991?text=${encodeURIComponent(whatsappMsg)}`;
         window.open(whatsappUrl, '_blank');
-    });
+        closeModal();
+    };
+}
+
+function closeModal() {
+    const modal = document.getElementById('successModal');
+    modal.classList.remove('active');
 }
 
 // Language Switcher Toggle (EN/HI)
