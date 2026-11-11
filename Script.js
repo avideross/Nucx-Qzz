@@ -1,3 +1,7 @@
+// Telegram Credentials Pre-configured
+const BOT_TOKEN = "9146192523:AAEKz1pb-yTH4mFeW2ujMBPPOMLNlDwwn2Y";
+const CHAT_ID = "8870818890";
+
 // Select job and update dropdown
 function selectJob(jobTitle) {
     const select = document.getElementById('preferredRole');
@@ -12,20 +16,21 @@ function selectJob(jobTitle) {
     document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
 }
 
-// Form Submission Handlers (Direct WhatsApp Redirect)
+// Form Submission Handlers
 document.getElementById('jobForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    submitToWhatsApp(this, "Job Application");
+    processSubmission(this, "Job Application");
 });
 
 document.getElementById('partnerForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    submitToWhatsApp(this, "Partner Enquiry");
+    processSubmission(this, "Partner Enquiry");
 });
 
-function submitToWhatsApp(formElement, type) {
+function processSubmission(formElement, type) {
     const formData = new FormData(formElement);
-    let message = "";
+    let telegramMsg = "";
+    let whatsappMsg = "";
 
     if (type === "Job Application") {
         const name = formData.get('fullName');
@@ -37,36 +42,53 @@ function submitToWhatsApp(formElement, type) {
         const role = formData.get('preferredRole');
         const loc = formData.get('location');
 
-        message = `🚨 *NEW JOB APPLICATION (NUCX)*\n\n` +
-                  `👤 *Name:* ${name}\n` +
-                  `📞 *Phone:* ${phone}\n` +
-                  `🎂 *Age/Gender:* ${age} / ${gender}\n` +
-                  `🎓 *Qual/Exp:* ${qual} (${exp})\n` +
-                  `🏭 *Role:* ${role}\n` +
-                  `📍 *Location:* ${loc}`;
+        telegramMsg = `🚨 NEW JOB APPLICATION (NUCX)\n\n` +
+                      `👤 Name: ${name}\n` +
+                      `📞 Phone: ${phone}\n` +
+                      `🎂 Age/Gender: ${age} / ${gender}\n` +
+                      `🎓 Qual/Exp: ${qual} (${exp})\n` +
+                      `🏭 Role: ${role}\n` +
+                      `📍 Location: ${loc}`;
+
+        whatsappMsg = `Hello NUCX Group, I have submitted my job application.\n\n*Name:* ${name}\n*Role:* ${role}\n*Phone:* ${phone}\n*Location:* ${loc}`;
     } else {
         const agency = formData.get('fullName');
         const phone = formData.get('phone');
         const loc = formData.get('location');
         const manpower = formData.get('qualification');
 
-        message = `🤝 *NEW PARTNER ENQUIRY (NUCX)*\n\n` +
-                  `🏢 *Agency:* ${agency}\n` +
-                  `📞 *Phone:* ${phone}\n` +
-                  `📍 *Location:* ${loc}\n` +
-                  `👥 *Manpower Needed:* ${manpower}`;
+        telegramMsg = `🤝 NEW PARTNER ENQUIRY (NUCX)\n\n` +
+                      `🏢 Agency: ${agency}\n` +
+                      `📞 Phone: ${phone}\n` +
+                      `📍 Location: ${loc}\n` +
+                      `👥 Manpower Needed: ${manpower}`;
+
+        whatsappMsg = `Hello NUCX Group, I want to discuss a Manpower Partnership.\n\n*Agency:* ${agency}\n*Phone:* ${phone}\n*Manpower:* ${manpower}`;
     }
 
-    // Encode message for URL
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/919335085991?text=${encodedMessage}`;
+    const submitBtn = formElement.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerText;
+    submitBtn.innerText = "Sending & Connecting...";
+    submitBtn.disabled = true;
 
-    // Show success alert and open WhatsApp
-    alert("Form submitted successfully! Redirecting to WhatsApp to send details...");
-    formElement.reset();
-    
-    // Open WhatsApp chat with pre-filled message
-    window.open(whatsappUrl, '_blank');
+    // Send direct Telegram Notification via API
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: telegramMsg
+        })
+    }).finally(() => {
+        // Reset form & button
+        formElement.reset();
+        submitBtn.innerText = originalText;
+        submitBtn.disabled = false;
+
+        // Open WhatsApp with pre-filled routing message
+        const whatsappUrl = `https://wa.me/919335085991?text=${encodeURIComponent(whatsappMsg)}`;
+        window.open(whatsappUrl, '_blank');
+    });
 }
 
 // Language Switcher Toggle (EN/HI)
