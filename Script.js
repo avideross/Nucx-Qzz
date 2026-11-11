@@ -7,6 +7,8 @@ function selectJob(jobTitle) {
             break;
         }
     }
+    // Smooth scroll to apply section
+    document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
 }
 
 // Google Apps Script Web App Endpoint (Replace with your deployed Web App URL)
